@@ -14,10 +14,8 @@ function Header() {
   return (
     <div className="navbar">
       <div className="navbar-left">
-      <a href="/"> <h3 className="nav-link">Trang Chủ</h3></a>
-
-      
-      <a href="/giohang"> <h3 className="nav-link">Giỏ hàng</h3></a>
+        <Link to="/" className="nav-link"><h3>Trang Chủ</h3></Link>
+        <Link to="/giohang" className="nav-link"><h3>Giỏ Hàng</h3></Link>
         <a href="Lienheadmin.html"> <h3 className="nav-link">Liên Hệ</h3></a>
         <a href="GioiThieu.html"><h3 className="nav-link">Giới Thiệu</h3></a>
       </div>

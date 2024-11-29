@@ -13,9 +13,9 @@ const Footer = () => {
         </div>
         <div className="footer-center">
           <div className="footer-links">
-            <a href="/ChinhSachBaoMat.html">Privacy Policy</a>
-            <a href="/DieuKhoanSuDung.html">Terms of Service</a>
-            <a href="/Contact.html">Contact</a>
+            <a href="ChinhSachBaoMat.html">Privacy Policy</a>
+            <a href="DieuKhoanSuDung.html">Terms of Service</a>
+            <a href="Contact.html">Contact</a>
           </div>
         </div>
         <div className="footer-right">
