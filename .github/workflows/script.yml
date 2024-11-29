@@ -44,7 +44,7 @@ jobs:
                 # pm2 start "serve -s dist" --name web
                 docker restart nodejs
                 # docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
-                docker exec -i mysql mysql -u ${MYSQl_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE} < /home/data/sql/data.sql
+                docker exec -i mysql mysql -u ${MYSQl_USER} -p'${MYSQL_PASSWORD}' ${MYSQL_DATABASE} < /home/data/sql/data.sql
               # else
               #   echo "Directory btl_web already exists."
               #   cd /home/data/btl_web
@@ -76,5 +76,5 @@ jobs:
               git clone --branch data --single-branch https://github.com/doai123/server.git .
               docker-compose up -d
               sleep 20
-              docker exec -i mysql mysql -u${MYSQl_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE} < /home/data/sql/data.sql
+              docker exec -i mysql mysql -u${MYSQl_USER} -p'${MYSQL_PASSWORD}' ${MYSQL_DATABASE} < /home/data/sql/data.sql
             fi
