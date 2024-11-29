@@ -13,9 +13,9 @@ const Footer = () => {
         </div>
         <div className="footer-center">
           <div className="footer-links">
-            <a href="ChinhSachBaoMat.html">Privacy Policy</a>
-            <a href="DieuKhoanSuDung.html">Terms of Service</a>
-            <a href="Contact.html">Contact</a>
+            <a href="/ChinhSachBaoMat.html">Privacy Policy</a>
+            <a href="/DieuKhoanSuDung.html">Terms of Service</a>
+            <a href="/Contact.html">Contact</a>
           </div>
         </div>
         <div className="footer-right">
@@ -38,23 +38,23 @@ const Footer = () => {
       
       <div className="footer-images">
   <div className="image-container">
-  <a href="ChinhSachHoanHang.html">
+  <a href="/ChinhSachHoanHang.html">
       <p className="image-text">Chính sách hoàn hàng</p>
   
-    <img src="chinhsachhoanhang.webp" alt="Image 1" />  </a> 
+    <img src="/chinhsachhoanhang.webp" alt="Image 1" />  </a> 
   </div>
   <div className="image-container">
-  <a href="Doitac.html">
+  <a href="/Doitac.html">
     <p className="image-text">Trở thành đối tác</p>
     <img src="doitac.webp" alt="Image 2" /></a>
   </div>
   <div className="image-container">
-<a href="Lienheadmin.html">
+<a href="/Lienheadmin.html">
     <p className="image-text">Liên hệ admin</p>
     <img src="tuvan.webp" alt="Image 3" /></a>
   </div>
   <div className="image-container">
-    <a href="Tuvan.html">
+    <a href="/Tuvan.html">
     <p className="image-text">Tư vấn</p>
     <img src="anh4.webp" alt="Image 4" /></a>
   </div>

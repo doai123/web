@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "./Header.css";
+import { useCart } from "../context/context";
 
 function Header() {
   const [cartCount, setCartCount] = useState(0);
-
+  const { isCartVisible, setIsCartVisible } = useCart();
   useEffect(() => {
     // Update cart count when the component mounts
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -15,9 +16,9 @@ function Header() {
     <div className="navbar">
       <div className="navbar-left">
         <Link to="/" className="nav-link"><h3>Trang Chủ</h3></Link>
-        <Link to="/giohang" className="nav-link"><h3>Giỏ Hàng</h3></Link>
-        <a href="Lienheadmin.html"> <h3 className="nav-link">Liên Hệ</h3></a>
-        <a href="GioiThieu.html"><h3 className="nav-link">Giới Thiệu</h3></a>
+        <Link to="/giohang" className="nav-link" onClick={()=> setIsCartVisible(!isCartVisible)}><h3>Giỏ Hàng</h3></Link>
+        <a href="/Lienheadmin.html" className="nav-link"> <h3>Liên Hệ</h3></a>
+        <a href="/GioiThieu.html" className="nav-link"><h3>Giới Thiệu</h3></a>
       </div>
       <div className="navbar-right">
         <a href="https://ditcuchungmay.linkpc.net:8080/req/login"><h3 className="nav-link">Đăng Nhập</h3></a>
