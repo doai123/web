@@ -28,7 +28,7 @@ const ProductDetail = () => {
         // Fetch product details
         const fetchProductDetail = async () => {
             try {
-                const response = await axios.get(`/SanPham/${id}`);
+                const response = await axios.get(`https:ditcuchungmay.linkpc.net/endpoints/SanPham/${id}`);
                 setProduct(response.data); // Set product data
 
                 // Download image if URL is present
@@ -44,7 +44,7 @@ const ProductDetail = () => {
         const downloadImage = async (imageName) => {
             try {
                 const response = await axios.get(
-                    `https:ditcuchungmay.linkpc.net:8080/SanPham/image/download/${imageName}`,
+                    `https:ditcuchungmay.linkpc.net/endpoints/SanPham/image/download/${imageName}`,
                     { responseType: 'blob' }  // Set response type to blob to handle image
                 );
                 const imageUrl = URL.createObjectURL(response.data);

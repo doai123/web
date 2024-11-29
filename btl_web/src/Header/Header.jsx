@@ -21,8 +21,8 @@ function Header() {
         <a href="/GioiThieu.html" className="nav-link"><h3>Giới Thiệu</h3></a>
       </div>
       <div className="navbar-right">
-        <a href="https://ditcuchungmay.linkpc.net:8080/req/login"><h3 className="nav-link">Đăng Nhập</h3></a>
-        <a href="https://ditcuchungmay.linkpc.net:8080/req/signup"><h3 className="nav-link">Đăng Ký</h3></a>
+        <a href="https://ditcuchungmay.linkpc.net/endpoints/req/login"><h3 className="nav-link">Đăng Nhập</h3></a>
+        <a href="https://ditcuchungmay.linkpc.net/endpoints/req/signup"><h3 className="nav-link">Đăng Ký</h3></a>
       </div>
     </div>
   );
