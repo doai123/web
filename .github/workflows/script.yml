@@ -25,10 +25,7 @@ jobs:
           script: |
             # MYSQL_PASSWORD=$(cat /home/data/password.txt)
             export MYSQL_PASSWORD=$"{{ secrets.MYSQL_PASSWORD }}"
-<<<<<<< HEAD
-             echo "The password is $MYSQL_PASSWORD"
-=======
->>>>>>> 71798d9810cacaa13e8e525b0f8829caeacb3fc2
+            echo "The password is $MYSQL_PASSWORD"
             if command -v docker &> /dev/null; then
               echo "Docker is installed, proceeding with deployment."
               cd /home/data
