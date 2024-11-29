@@ -24,7 +24,7 @@ jobs:
           port: 22
           script: |
             # MYSQL_PASSWORD=$(cat /home/data/password.txt)
-            MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
+            export MYSQL_PASSWORD=$"{{ secrets.MYSQL_PASSWORD }}"
             if command -v docker &> /dev/null; then
               echo "Docker is installed, proceeding with deployment."
               cd /home/data
@@ -42,6 +42,7 @@ jobs:
                 # npm run build
                 # pm2 start "serve -s dist" --name web
                 docker restart nodejs
+                docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
               # else
               #   echo "Directory btl_web already exists."
               #   cd /home/data/btl_web
