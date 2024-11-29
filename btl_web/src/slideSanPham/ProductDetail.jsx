@@ -112,7 +112,7 @@ const ProductDetail = () => {
             {/* Product Detail Section */}
             <div className="product-image"
                 style={{ 
-                    backgroundImage: `url(${imageUrl || product.hinhAnhUrl || 'default-image.jpg'})`, 
+                    backgroundImage: `url(${imageUrl})`,
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center', 
                     height: '400px', 

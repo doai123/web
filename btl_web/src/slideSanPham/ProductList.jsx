@@ -76,7 +76,7 @@ const ProductList = ({ maSanPham }) => {
             <div className="product-card">  
               {/* Hiển thị ảnh sản phẩm hoặc ảnh tải từ server */}
               <img 
-                src={imageUrls[sanPham.hinhAnhUrl] || '/default-image.jpg'}  // Sử dụng ảnh tải về hoặc ảnh mặc định
+                src={imageUrls[sanPham.hinhAnhUrl]}  // Sử dụng ảnh tải về hoặc ảnh mặc định
                 alt={sanPham.tenSanPham} 
                 className="img-productList" 
               />
