@@ -1,0 +1,76 @@
+name: Vite deployment
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Deploy using SSH and check if the directory exists
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: 22
+          script: |
+            MYSQL_PASSWORD=$(cat /home/data/password.txt)
+            if command -v docker &> /dev/null; then
+              echo "Docker is installed, proceeding with deployment."
+              cd /home/data
+              # git clone --branch data --single-branch https://github.com/doai123/server.git .
+              git pull
+              # Kiểm tra sự tồn tại của thư mục btl_web
+              # if [ ! -d "/home/data/btl_web" ]; then
+              #   echo "btl_web no such file."
+              #   mkdir -p /home/data/btl_web
+              #   cd /home/data
+                # git clone https://github.com/doai123/server.git .
+                cd /home/data/btl_web
+                mkdir pm2_data
+                # npm install
+                # npm run build
+                # pm2 start "serve -s dist" --name web
+                docker restart nodejs
+              # else
+              #   echo "Directory btl_web already exists."
+              #   cd /home/data/btl_web
+              #   git pull origin main  # Cập nhật repository nếu có thay đổi
+              #   # npm install  
+              #   # npm run build  
+              #   # pm2 restart web
+              #   docker restart nodejs
+              # fi
+            else
+              echo "Docker is not installed. Exiting deployment."
+              mkdir /home
+              cd /home
+              apt update
+              apt install snapd
+              # sleep 10
+              # systemctl enable snapd
+              # systemctl start snapd
+              # systemctl enable snapd.socket
+              # systemctl start snapd.socket
+              # sleep 10
+              snap install docker
+              # systemctl enable docker
+              # systemctl start docker
+              systemctl status docker
+              # sleep 10s
+              mkdir data
+              cd /home/data
+              git clone --branch data --single-branch https://github.com/doai123/server.git .
+              docker-compose up -d
+              sleep 20
+              docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
+            fi

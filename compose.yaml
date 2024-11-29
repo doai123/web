@@ -1,0 +1,117 @@
+services:
+  mysql:
+    image: 'doai123/mysql:latest'
+    container_name: 'mysql'
+    environment:
+      - 'MYSQL_DATABASE=btl_web'
+      - 'MYSQL_PASSWORD=Doaivip123@'
+      - 'MYSQL_ROOT_PASSWORD=Doaivip123@'
+      - 'MYSQL_USER=doai123'
+      - 'TZ=Asia/Ho_Chi_Minh'
+    ports:
+      - '3306:3306'
+    volumes:
+      - /home/data/mysql:/var/lib/mysql
+      - /home/data/sql:/sql
+    # command: ["bash", "-c", "docker-entrypoint.sh mysqld & sleep 10 && mysql -u root Doaivip123@ < /sql/data.sql"]
+    networks:
+      - my-network
+
+  phpmyadmin:
+    image: 'doai123/phpmyadmin:latest'
+    container_name: 'phpmyadmin'
+    ports:
+      - '80:80'  # Cổng truy cập phpMyAdmin trên máy chủ
+    environment:
+      PMA_HOST: mysql   # Tên dịch vụ MySQL trong Docker Compose
+      PMA_USER: root    # Tên người dùng MySQL
+      PMA_PASSWORD: Doaivip123@  # Mật khẩu người dùng MySQL
+      TZ: Asia/Ho_Chi_Minh
+    networks:
+      - my-network
+
+  springboot-app:
+    image: 'doai123/springboot'# Docker image của ứng dụng Spring Boot
+    container_name: 'spring-container'
+    environment:
+      - 'TZ=Asia/Ho_Chi_Minh'
+      - 'SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/btl_web'  # Kết nối Spring Boot với MySQL
+      - 'SPRING_DATASOURCE_USERNAME=doai123'  # Tên người dùng MySQL
+      - 'SPRING_DATASOURCE_PASSWORD=Doaivip123@'  # Mật khẩu người dùng MySQL
+    ports:
+      - '8080:8080'  # Cổng cho ứng dụng Spring Boot của bạn
+    depends_on:
+      - mysql  # Đảm bảo MySQL được khởi động trước khi ứng dụng Spring Boot khởi động
+    volumes:
+      - /home/data/app:/app  # Bind mount từ Windows vào container (thư mục data trong C:/)
+      - /home/data/pictures:/app/pictures
+    command: ["sh", "-c", "cd /app && mvn clean package -DskipTests && sleep 60s && java -jar /app/target/web.jar"]
+    networks:
+      - my-network
+  nginx:
+    image: 'doai123/nginx'# Docker image của ứng dụng Spring Boot
+    container_name: 'nginx'
+    environment:
+    - 'TZ=Asia/Ho_Chi_Minh'
+    ports:
+      - '443:443'  # Cổng cho ứng dụng Spring Boot của bạn
+    volumes:
+      - /home/data/default.conf:/etc/nginx/conf.d/default.conf  # Bind mount từ Windows vào container (thư mục data trong C:/)
+      - /home/data/ssl:/ssl
+    command: ["nginx", "-g", "daemon off;"]
+    networks:
+      - my-network
+
+  nodejs:
+    image: 'doai123/nodejs'  # Docker image của ứng dụng Node.js
+    container_name: 'nodejs'
+    environment:
+    - 'TZ=Asia/Ho_Chi_Minh'
+    ports:
+      - '3000:3000'
+    volumes:
+      - /home/data/btl_web:/btl_web
+      - /home/data/btl_web/pm2_data:/root/.pm2
+    command: /bin/sh -c "
+      if [ ! -f /btl_web/first_run_flag ]; then
+      echo 'First run detected, installing dependencies...';
+      cd /btl_web && npm install && npm run build;
+      pm2 start 'serve -s dist' --name web;
+      touch /btl_web/first_run_flag;
+      pm2 save;
+      pm2 logs;
+      else
+      echo 'Not the first run, starting the app...';
+      pm2 resurrect;
+      cd /btl_web && npm install && npm run build;
+      pm2 restart web;
+      pm2 save;
+      pm2 logs;
+      fi"
+    networks:
+      - my-network
+  portainer:
+    image: 'doai123/portainer'
+    container_name: 'portainer'
+    environment:
+    - 'TZ=Asia/Ho_Chi_Minh'
+    ports:
+      - '9000:9000'  # Port truy cập giao diện Portainer
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'  # Để Portainer có thể quản lý Docker daemon
+      - /home/data/portainer:/data'  # Lưu trữ dữ liệu của Portainer
+    restart: always
+    networks:
+      - my-network
+
+volumes:
+  mysql-data:
+    driver: local
+  portainer_data:
+    driver: local
+  spring-data:
+    driver: local
+
+networks:
+  my-network:
+    driver: bridge
