@@ -25,13 +25,13 @@ jobs:
           script: |
             # MYSQL_PASSWORD=$(cat /home/data/password.txt)
             export MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
-            echo "The password is $MYSQL_PASSWORD"
+            export MYSQL_USER = ${{ secrets.MYSQL_USER }}
+            export MYSQL_DATABASE = ${{ secrets.MYSQL_DATABASE }}
             if command -v docker &> /dev/null; then
               echo "Docker is installed, proceeding with deployment."
               cd /home/data
               # git clone --branch data --single-branch https://github.com/doai123/server.git .
               git pull
-              # Kiểm tra sự tồn tại của thư mục btl_web
               # if [ ! -d "/home/data/btl_web" ]; then
               #   echo "btl_web no such file."
               #   mkdir -p /home/data/btl_web
@@ -75,5 +75,5 @@ jobs:
               git clone --branch data --single-branch https://github.com/doai123/server.git .
               docker-compose up -d
               sleep 20
-              docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
+              docker exec -i mysql mysql -u${MYSQl_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE} < /home/data/sql/data.sql
             fi
