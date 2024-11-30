@@ -52,9 +52,9 @@ public class SercurityConfig {
                 .anyRequest().authenticated()  // Yêu cầu xác thực cho tất cả các trang khác
                 .and()
                 .formLogin(form -> form
-                        .loginPage("/req/login")  // Trang login tùy chỉnh
-                        .defaultSuccessUrl("/", true)  // Chuyển hướng khi đăng nhập thành công
-                        .failureUrl("/req/login?error=true")  // Chuyển hướng khi đăng nhập thất bại
+                        .loginPage("https://ditcuchungmay.linkpc.net/endpoints/req/login")  // Trang login tùy chỉnh
+                        .defaultSuccessUrl("https://ditcuchungmay.linkpc.net/", true)  // Chuyển hướng khi đăng nhập thành công
+                        .failureUrl("https://ditcuchungmay.linkpc.net/endpoints/req/login?error=true")  // Chuyển hướng khi đăng nhập thất bại
                 )
                 .build();
     }
