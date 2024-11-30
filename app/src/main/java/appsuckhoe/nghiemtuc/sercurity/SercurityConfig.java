@@ -23,27 +23,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @AllArgsConstructor
 public class SercurityConfig {
-    @Autowired
-    private KhachHangService khachHangService;
-
-@Bean
-    public UserDetailsService userDetailsService(){
-    return khachHangService;
-    }
-
-    @Bean
-    public AuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-        provider.setUserDetailsService(khachHangService);
-        provider.setPasswordEncoder(passwordEncoder());
-        return provider;
-    }
-
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity
@@ -54,7 +33,7 @@ public class SercurityConfig {
                 .requestMatchers("/SanPham/image/**").permitAll()
                 .anyRequest().authenticated()  // Yêu cầu xác thực cho các yêu cầu khác
                 .and()
-//                .httpBasic(Customizer.withDefaults())  // Bật Basic Authentication cho API
+                .httpBasic(Customizer.withDefaults())  // Bật Basic Authentication cho API
                 .build();
     }
 }
