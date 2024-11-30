@@ -4,9 +4,9 @@ describe('Homepage', () => {
         cy.visit('/');
 
         // Kiểm tra tiêu đề trang
-        cy.title().should('include', 'Home Page');
+        cy.title().should('include', 'DOUBLE SHOP');
 
         // Kiểm tra sự tồn tại của một phần tử trên trang (ví dụ: tiêu đề)
-        cy.contains('Welcome to my app').should('be.visible');
+        cy.contains('- DO THE RIGHT-DO THE BEST -').should('be.visible');
     });
 });

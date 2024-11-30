@@ -1,7 +1,7 @@
 describe('Login Form', () => {
     it('should log in with valid credentials', () => {
         // Truy cập trang đăng nhập
-        cy.visit('/login');
+        cy.visit('/endpoints/req/login');
 
         // Nhập thông tin vào các trường form
         cy.get('input[name="email"]').type('user@example.com');
