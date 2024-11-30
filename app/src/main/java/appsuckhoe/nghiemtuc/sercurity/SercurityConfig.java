@@ -23,6 +23,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @AllArgsConstructor
 public class SercurityConfig {
+    @Autowired
+    private PasswordEncoder passwordEncoder;  // Kiểm tra xem PasswordEncoder có được tiêm vào không
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity
