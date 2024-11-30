@@ -49,9 +49,9 @@ public class SercurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests()
-                .requestMatchers("/endpoints/req/login","/endpoints/req/signup", "/endpoints/css/**", "/endpoints/js/**").permitAll() // Cho phép đăng ký, CSS, JS không cần xác thực
-                .requestMatchers("/endpoints/SanPham/**").permitAll()
-                .requestMatchers("/endpoints/SanPham/image/**").permitAll()
+                .requestMatchers("/req/login","/req/signup", "/css/**", "/js/**").permitAll() // Cho phép đăng ký, CSS, JS không cần xác thực
+                .requestMatchers("/SanPham/**").permitAll()
+                .requestMatchers("/SanPham/image/**").permitAll()
                 .anyRequest().authenticated()  // Yêu cầu xác thực cho các yêu cầu khác
                 .and()
                 .httpBasic(Customizer.withDefaults())  // Bật Basic Authentication cho API
