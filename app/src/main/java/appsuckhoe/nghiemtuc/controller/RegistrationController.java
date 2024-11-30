@@ -20,23 +20,19 @@ private KhachHangRepository khachHangRepository;
 
 
     @PostMapping(value = "/req/signup", consumes = "application/json")
-    public String createKhachhang(@RequestBody KhachHang khachHang, RedirectAttributes redirectAttributes) {
-        // Kiểm tra mật khẩu (matKhau) không null
+    public String createKhachhang(@RequestBody KhachHang khachHang) {
         if (khachHang.getMatKhau() == null) {
             throw new IllegalArgumentException("Password cannot be null");
         }
 
-        // Mã hóa mật khẩu
         String encodedPassword = passwordEncoder.encode(khachHang.getMatKhau());
         khachHang.setMatKhau(encodedPassword);
 
         // Lưu KhachHang vào cơ sở dữ liệu
         khachHangRepository.save(khachHang);
 
-        // Thêm thông báo cho redirect
-        redirectAttributes.addFlashAttribute("message", "Registration successful. Please log in.");
-
-        return "redirect:/endpoints/req/login";
+        // Trả về thông báo đăng ký thành công
+        return "/endpoints/req/login";
     }
 
 

@@ -73,12 +73,12 @@
                 },
                 body: JSON.stringify(data) // Chuyển đối tượng data thành JSON string
             })
-            .then(response => response.json())
+            .then(response => response.text())
             .then(data => {
                 alert('Signup successful!');
                 console.log(data);
                 // Điều hướng tới trang khác sau khi đăng ký thành công
-
+                window.location.href = data;
             })
             .catch(error => {
                 alert('Error: ' + error);
