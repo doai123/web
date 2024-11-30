@@ -66,7 +66,6 @@ jobs:
               cd /home
               apt update
               apt install snapd
-              # sleep 10
               # systemctl enable snapd
               # systemctl start snapd
               # systemctl enable snapd.socket
