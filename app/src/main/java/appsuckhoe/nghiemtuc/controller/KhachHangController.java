@@ -1,6 +1,5 @@
     package appsuckhoe.nghiemtuc.controller;
 
-    import appsuckhoe.nghiemtuc.service.KhachHangService;
     import appsuckhoe.nghiemtuc.service.loginServices;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Controller;
