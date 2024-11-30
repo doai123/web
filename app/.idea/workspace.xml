@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/controller/KhachHangController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/controller/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/controller/AuthenticationControllers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/sercurity/SercurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/sercurity/SercurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/service/loginServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/service/AuthenticationServices.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +112,8 @@
       <workItem from="1732951519963" duration="1775000" />
       <workItem from="1732953347721" duration="10287000" />
       <workItem from="1732968110938" duration="62000" />
-      <workItem from="1732968186733" duration="4773000" />
+      <workItem from="1732968186733" duration="5727000" />
+      <workItem from="1732976392950" duration="307000" />
     </task>
     <servers />
   </component>
