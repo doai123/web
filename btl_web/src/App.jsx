@@ -29,7 +29,7 @@ function AppContent() {
     <>
       <Header />
       <Banner />
-      <Routes>
+      <Routes v7_startTransition={true}>
         <Route path="/" element={<ProductList />} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/product/:id" element={<ProductDetail />} />
