@@ -28,6 +28,8 @@ jobs:
             export MYSQL_USER=${{ secrets.MYSQL_USER }}
             export MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
             COMMIT_MESSAGE=$(jq -r '.commits[0].message' < $GITHUB_EVENT_PATH)
+            echo "GITHUB_EVENT_PATH: $GITHUB_EVENT_PATH"
+            cat $GITHUB_EVENT_PATH
             echo "Commit message: $COMMIT_MESSAGE"
             if command -v docker &> /dev/null; then
               echo "Docker is installed, proceeding with deployment."
