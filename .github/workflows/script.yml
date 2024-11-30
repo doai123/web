@@ -70,7 +70,6 @@ jobs:
               # systemctl start snapd
               # systemctl enable snapd.socket
               # systemctl start snapd.socket
-              # sleep 10
               snap install docker
               # systemctl enable docker
               # systemctl start docker
