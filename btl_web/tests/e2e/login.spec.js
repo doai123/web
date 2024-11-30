@@ -4,7 +4,7 @@ describe('Login Form', () => {
         cy.visit('/endpoints/req/login');
 
         // Nhập thông tin vào các trường form
-        cy.get('input[name="email"]').type('user@example.com');
+        cy.get('input[name="username"]').type('user@example.com');
         cy.get('input[name="password"]').type('password123');
 
         // Click vào nút đăng nhập

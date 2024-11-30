@@ -7,6 +7,6 @@ describe('Homepage', () => {
         cy.title().should('include', 'DOUBLE SHOP');
 
         // Kiểm tra sự tồn tại của một phần tử trên trang (ví dụ: tiêu đề)
-        cy.contains('- DO THE RIGHT-DO THE BEST -').should('be.visible');
+        cy.contains('iPhone 12 128GB').should('be.visible');
     });
 });
