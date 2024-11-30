@@ -27,14 +27,13 @@ jobs:
             export MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
             export MYSQL_USER=${{ secrets.MYSQL_USER }}
             export MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
-            COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-            echo "Commit message: $COMMIT_MESSAGE"
-            echo "Commit message: $COMMIT_MESSAGE"
             if command -v docker &> /dev/null; then
               echo "Docker is installed, proceeding with deployment."
 
               cd /home/data
               git pull
+              COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+              echo "Commit message: $COMMIT_MESSAGE"
               cd /home/data/btl_web
               mkdir pm2_data
               if [[ "$COMMIT_MESSAGE" == *"restart-nodejs"* ]]; then
