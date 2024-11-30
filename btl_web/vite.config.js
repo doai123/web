@@ -4,5 +4,7 @@ import react from '@vitejs/plugin-react';
 // Cấu hình Vite
 export default defineConfig({
   plugins: [react()],
-  base:'./',
+  server: {
+    historyApiFallback: true, // Cấu hình này chuyển hướng các route về index.html
+  },
 });

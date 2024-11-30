@@ -27,34 +27,39 @@ jobs:
             export MYSQL_PASSWORD=${{ secrets.MYSQL_PASSWORD }}
             export MYSQL_USER=${{ secrets.MYSQL_USER }}
             export MYSQL_DATABASE=${{ secrets.MYSQL_DATABASE }}
+            COMMIT_MESSAGE=$(jq -r '.commits[0].message' < $GITHUB_EVENT_PATH)
+            echo "Commit message: $COMMIT_MESSAGE"
             if command -v docker &> /dev/null; then
               echo "Docker is installed, proceeding with deployment."
+
               cd /home/data
-              # git clone --branch data --single-branch https://github.com/doai123/server.git .
               git pull
-              # if [ ! -d "/home/data/btl_web" ]; then
-              #   echo "btl_web no such file."
-              #   mkdir -p /home/data/btl_web
-              #   cd /home/data
-                # git clone https://github.com/doai123/server.git .
-                cd /home/data/btl_web
-                mkdir pm2_data
-                # npm install
-                # npm run build
-                # pm2 start "serve -s dist" --name web
+              cd /home/data/btl_web
+              mkdir pm2_data
+              if [[ "$COMMIT_MESSAGE" == *"restart-nodejs"* ]]; then
+                echo "Restarting Node.js container..."
                 docker restart nodejs
+              fi
+
+              if [[ "$COMMIT_MESSAGE" == *"restart-nginx"* ]]; then
+                echo "Restarting Nginx container..."
                 docker restart nginx
+              fi
+
+              if [[ "$COMMIT_MESSAGE" == *"restart-spring"* ]]; then
+                echo "Restarting Spring container..."
                 docker restart spring-container
-                # docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
-              # else
-              #   echo "Directory btl_web already exists."
-              #   cd /home/data/btl_web
-              #   git pull origin main  # Cập nhật repository nếu có thay đổi
-              #   # npm install  
-              #   # npm run build  
-              #   # pm2 restart web
-              #   docker restart nodejs
-              # fi
+              fi
+                if [[ "$COMMIT_MESSAGE" == *"export"* ]]; then
+                 echo "export..........."
+                docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
+              fi
+               if [[ "$COMMIT_MESSAGE" == *"restart-all"* ]]; then
+                docker restart nodejs
+              d ocker restart nginx
+                docker restart spring-container
+              fi
+
             else
               echo "Docker is not installed. Exiting deployment."
               mkdir /home
