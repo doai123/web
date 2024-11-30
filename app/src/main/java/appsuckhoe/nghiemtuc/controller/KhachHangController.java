@@ -30,7 +30,7 @@
             }
             // Tiến hành xác thực người dùng (sử dụng Spring Security hoặc phương pháp tùy chỉnh)
             // Nếu đăng nhập thành công, chuyển hướng đến trang chính
-            return "redirect:/home";
+            return "redirect:/";
         }
 
     }

@@ -49,8 +49,8 @@ public class SercurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .formLogin(httpForm ->{
-                    httpForm.loginPage("/req/login").permitAll();
-                    httpForm.defaultSuccessUrl("/http://localhost:5173");
+                    httpForm.loginPage("/endpoints/req/login").permitAll();
+                    httpForm.defaultSuccessUrl("/");
 
                 })
 
