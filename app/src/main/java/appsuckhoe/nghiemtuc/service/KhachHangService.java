@@ -21,7 +21,8 @@ import java.util.Optional;
 public class KhachHangService implements UserDetailsService {
     @Autowired
    private KhachHangRepository khachHangRepository;
-
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -37,6 +38,21 @@ public class KhachHangService implements UserDetailsService {
 
         }
     }
+    public boolean login(String username,String password) throws UsernameNotFoundException {
+        Optional<KhachHang> user = khachHangRepository.findByTen(username);
+        if(user.isPresent()) {
+            boolean isPasswordMatch = passwordEncoder.matches(password, user.get().getMatKhau());
+            if(isPasswordMatch){
+                return true;
+            }else {
+                return false;
+            }
+        }else {
+            return false;
+
+        }
+    }
+
 
 
 

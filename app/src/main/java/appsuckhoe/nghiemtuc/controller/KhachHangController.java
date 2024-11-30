@@ -1,5 +1,7 @@
     package appsuckhoe.nghiemtuc.controller;
 
+    import appsuckhoe.nghiemtuc.service.KhachHangService;
+    import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
     import org.springframework.web.bind.annotation.GetMapping;
@@ -8,19 +10,25 @@
 
     @Controller
     public class KhachHangController {
+        @Autowired
+        private KhachHangService khachHangService;
+
         @GetMapping("/req/login")
-        public String login(){
+        public String login() {
             return "login";
         }
-    @GetMapping("/req/signup")
-        public String signup(){
+
+        @GetMapping("/req/signup")
+        public String signup() {
             return "signup";
-    }
-    @GetMapping("/index")
-        public String home(){
+        }
+
+        @GetMapping("/index")
+        public String home() {
             return "index";
-    }
-    @PostMapping("/req/login")
+        }
+
+        @PostMapping("/req/login")
         public String login(@RequestParam("username") String username,
                             @RequestParam("password") String password,
                             Model model) {
@@ -28,9 +36,13 @@
                 model.addAttribute("error", "Username and password are required");
                 return "login";  // Trả lại trang login nếu thông tin không hợp lệ
             }
-            // Tiến hành xác thực người dùng (sử dụng Spring Security hoặc phương pháp tùy chỉnh)
-            // Nếu đăng nhập thành công, chuyển hướng đến trang chính
-            return "redirect:/";
-        }
+            boolean login = khachHangService.login(username, password);
+            if (login) {
+                return "redirect:/";
+            } else {
+                model.addAttribute("error", "Invalid username or password");  // Thông báo lỗi nếu đăng nhập thất bại
+                return "login";
+            }
 
+        }
     }
