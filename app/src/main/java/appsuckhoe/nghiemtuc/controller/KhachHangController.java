@@ -60,7 +60,7 @@
             boolean check = authenticationServices.signup(khachHang.getTen());
                 if (check) {
                     // Trả về thông báo lỗi nếu tên người dùng đã tồn tại
-                    throw new IllegalArgumentException("Username already exists");
+                    return "Failed.";
                 }else {
 
                     String encodedPassword = passwordEncoder.encode(khachHang.getMatKhau());
