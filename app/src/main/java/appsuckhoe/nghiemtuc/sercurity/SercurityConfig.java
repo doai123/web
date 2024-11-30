@@ -53,7 +53,7 @@ public class SercurityConfig {
                 .and()
                 .formLogin(form -> form
                         .loginPage("/req/login")  // Trang login tùy chỉnh
-                        .loginProcessingUrl("/req/login")  // URL xử lý đăng nhập
+                        .loginProcessingUrl("/endpoints/req/login")  // URL xử lý đăng nhập
                         .defaultSuccessUrl("/", true)  // Chuyển hướng khi đăng nhập thành công
                         .failureUrl("/req/login?error=true")  // Chuyển hướng khi đăng nhập thất bại
                 )
