@@ -3,6 +3,7 @@
     import appsuckhoe.nghiemtuc.domain.KhachHang;
     import appsuckhoe.nghiemtuc.repository.KhachHangRepository;
     import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.http.ResponseEntity;
     import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
@@ -11,6 +12,9 @@
     import org.springframework.web.bind.annotation.RequestBody;
     import org.springframework.web.bind.annotation.RequestParam;
     import appsuckhoe.nghiemtuc.service.AuthenticationServices;
+
+    import java.util.HashMap;
+    import java.util.Map;
 
     @Controller
     public class KhachHangController {
@@ -53,24 +57,27 @@
 
         }
         @PostMapping(value = "/req/signup", consumes = "application/json")
-        public String createKhachhang(@RequestBody KhachHang khachHang) {
+        public ResponseEntity<Map<String, String>> createKhachhang(@RequestBody KhachHang khachHang) {
+            Map<String, String> response = new HashMap<>();
+
             if (khachHang.getMatKhau() == null) {
-                throw new IllegalArgumentException("Password cannot be null");
+                response.put("error", "Password cannot be null");
+                return ResponseEntity.badRequest().body(response);
             }
+
             boolean check = authenticationServices.signup(khachHang.getTen());
-                if (check) {
-                    // Trả về thông báo lỗi nếu tên người dùng đã tồn tại
-                    return "Failed.";
-                }else {
+            if (check) {
+                response.put("error", "Ten already exited.");
+                return ResponseEntity.badRequest().body(response);
+            } else {
+                String encodedPassword = passwordEncoder.encode(khachHang.getMatKhau());
+                khachHang.setMatKhau(encodedPassword);
 
-                    String encodedPassword = passwordEncoder.encode(khachHang.getMatKhau());
-                    khachHang.setMatKhau(encodedPassword);
+                khachHangRepository.save(khachHang);
 
-                    // Lưu KhachHang vào cơ sở dữ liệu
-                    khachHangRepository.save(khachHang);
-
-                    // Trả về thông báo đăng ký thành công
-                    return "/endpoints/req/login";
-                }
+                response.put("message", "/endpoints/req/login");
+                return ResponseEntity.ok(response);
+            }
         }
+
     }

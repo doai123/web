@@ -73,15 +73,14 @@
                 },
                 body: JSON.stringify(data) // Chuyển đối tượng data thành JSON string
             })
-            .then(response => response.text())
+            .then(response => response.json())
             .then(data => {
-                if(data === "Failed."){
-                    alert('Ten Already existed!');
+                if(data.error ){
+                    alert(data.error);
                 }else {
                     alert('Signup successful!');
-
                     // Điều hướng tới trang khác sau khi đăng ký thành công
-                    window.location.href = data;
+                    window.location.href = data.message;
                 }
             })
             .catch(error => {
