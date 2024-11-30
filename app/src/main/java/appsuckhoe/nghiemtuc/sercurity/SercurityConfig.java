@@ -52,9 +52,9 @@ public class SercurityConfig {
                 .anyRequest().authenticated()  // Yêu cầu xác thực cho tất cả các trang khác
                 .and()
                 .formLogin(form -> form
-                        .loginPage("/endpoints/req/login")  // Trang login tùy chỉnh
+                        .loginPage("/req/login")  // Trang login tùy chỉnh
                         .defaultSuccessUrl("/", true)  // Chuyển hướng khi đăng nhập thành công
-                        .failureUrl("/endpoints/req/login?error=true")  // Chuyển hướng khi đăng nhập thất bại
+                        .failureUrl("/req/login?error=true")  // Chuyển hướng khi đăng nhập thất bại
                 )
                 .build();
     }
