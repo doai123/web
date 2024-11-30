@@ -54,7 +54,7 @@ public class SercurityConfig {
                 .requestMatchers("/SanPham/image/**").permitAll()
                 .anyRequest().authenticated()  // Yêu cầu xác thực cho các yêu cầu khác
                 .and()
-                .httpBasic(Customizer.withDefaults())  // Bật Basic Authentication cho API
+//                .httpBasic(Customizer.withDefaults())  // Bật Basic Authentication cho API
                 .build();
     }
 }
