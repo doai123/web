@@ -48,15 +48,8 @@ public class SercurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
-                .formLogin(httpForm ->{
-                    httpForm.loginPage("/endpoints/req/login").permitAll();
-                    httpForm.defaultSuccessUrl("/");
-
-                })
-
-
                 .authorizeRequests()
-                .requestMatchers("/endpoints/req/signup", "/endpoints/css/**", "/endpoints/js/**").permitAll() // Cho phép đăng ký, CSS, JS không cần xác thực
+                .requestMatchers("/endpoints/req/login","/endpoints/req/signup", "/endpoints/css/**", "/endpoints/js/**").permitAll() // Cho phép đăng ký, CSS, JS không cần xác thực
                 .requestMatchers("/endpoints/SanPham/**").permitAll()
                 .requestMatchers("/endpoints/SanPham/image/**").permitAll()
                 .anyRequest().authenticated()  // Yêu cầu xác thực cho các yêu cầu khác
