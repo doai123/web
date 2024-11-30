@@ -1,6 +1,7 @@
     package appsuckhoe.nghiemtuc.controller;
 
     import appsuckhoe.nghiemtuc.service.KhachHangService;
+    import appsuckhoe.nghiemtuc.service.loginServices;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
@@ -11,7 +12,7 @@
     @Controller
     public class KhachHangController {
         @Autowired
-        private KhachHangService khachHangService;
+        private loginServices loginServices;
 
         @GetMapping("/req/login")
         public String login() {
@@ -36,7 +37,7 @@
                 model.addAttribute("error", "Username and password are required");
                 return "login";  // Trả lại trang login nếu thông tin không hợp lệ
             }
-            boolean login = khachHangService.login(username, password);
+            boolean login = loginServices.login(username, password);
             if (login) {
                 return "redirect:/";
             } else {
