@@ -1,4 +1,4 @@
- package appsuckhoe.nghiemtuc.sercurity;
+package appsuckhoe.nghiemtuc.sercurity;
 
 import appsuckhoe.nghiemtuc.service.KhachHangService;
 import lombok.AllArgsConstructor;
@@ -18,29 +18,45 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-
 @EnableWebSecurity
 @Configuration
 @AllArgsConstructor
 public class SercurityConfig {
-    @Autowired
-    private PasswordEncoder passwordEncoder;  // Kiểm tra xem PasswordEncoder có được tiêm vào không
+    private final KhachHangService khachHangService;
+
+    @Bean
+    public UserDetailsService userDetailsService() {
+        return khachHangService;
+    }
+
+    @Bean
+    public AuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setUserDetailsService(khachHangService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests()
-                .requestMatchers("/req/login","/req/signup", "/css/**", "/js/**").permitAll() // Cho phép đăng ký, CSS, JS không cần xác thực
-                .requestMatchers("/SanPham/**").permitAll()
-                .requestMatchers("/SanPham/image/**").permitAll()
-                .anyRequest().authenticated()  // Yêu cầu xác thực cho các yêu cầu khác
+                .requestMatchers("/req/login", "/req/signup", "/css/**", "/js/**").permitAll()  // Cho phép đăng ký, CSS, JS không cần xác thực
+                .requestMatchers("/SanPham/**", "/SanPham/image/**").permitAll()  // Các trang sản phẩm không cần xác thực
+                .anyRequest().authenticated()  // Yêu cầu xác thực cho tất cả các trang khác
                 .and()
-                .httpBasic(Customizer.withDefaults())  // Bật Basic Authentication cho API
+                .formLogin(form -> form
+                        .loginPage("/req/login")  // Trang login tùy chỉnh
+                        .loginProcessingUrl("/req/login")  // URL xử lý đăng nhập
+                        .defaultSuccessUrl("/", true)  // Chuyển hướng khi đăng nhập thành công
+                        .failureUrl("/req/login?error=true")  // Chuyển hướng khi đăng nhập thất bại
+                )
                 .build();
     }
 }
