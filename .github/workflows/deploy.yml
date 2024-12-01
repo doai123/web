@@ -34,7 +34,7 @@ jobs:
               git pull
               COMMIT_MESSAGE=$(git log -1 --pretty=%B)
               echo "Commit message: $COMMIT_MESSAGE"
-              cd /home/data/btl_web
+              cd /home/data/frontend
               mkdir pm2_data
               if [[ "$COMMIT_MESSAGE" == *"restart-nodejs"* ]]; then
                 echo "Restarting Node.js container..."
