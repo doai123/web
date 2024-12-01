@@ -5,29 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/NghiemtucApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/NghiemtucApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/constant/Constant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/controller/HangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/HangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/controller/SanPhamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/SanPhamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/cors/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/cors/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/domain/Hang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/domain/Hang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/domain/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/domain/KhachHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/domain/SanPham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/domain/SanPham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/repository/HangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/repository/HangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/repository/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/repository/KhachHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/repository/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/repository/SanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/sercurity/SercurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/sercurity/SercurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/service/AuthenticationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/AuthenticationServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/service/HangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/HangService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/service/KhachHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/KhachHangService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/appsuckhoe/nghiemtuc/service/SanPhamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/SanPhamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/appsuckhoe/nghiemtuc/NghiemtucApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/backend/NghiemtucApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,28 +35,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.NghiemtucApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/data/app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.NghiemtucApplication.executor": "Run",
+    "git-widget-placeholder": "production",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/data/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.NghiemtucApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="app" />
       <method v="2">
@@ -86,6 +66,14 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="app" />
       <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NghiemtucApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="doubleshop" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="backend.NghiemtucApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -133,6 +121,7 @@
       <workItem from="1732968186733" duration="5727000" />
       <workItem from="1732976392950" duration="3227000" />
       <workItem from="1733066805422" duration="1562000" />
+      <workItem from="1733070601876" duration="31000" />
     </task>
     <servers />
   </component>
