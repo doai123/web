@@ -5,6 +5,7 @@
   margin: 0; /* Loại bỏ margin mặc định của tất cả các phần tử */
   padding: 0; /* Loại bỏ padding mặc định */
   box-sizing: border-box;
+  z-index: 0;
 }
 
 /* Đảm bảo phần tử <html> và <body> cũng có chiều rộng đầy đủ */

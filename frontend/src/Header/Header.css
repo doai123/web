@@ -82,46 +82,34 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Giữ navbar hiển thị ngang trên mobile */
     .navbar {
-        flex-direction: column;
-        padding: 10px 20px;  /* Thêm padding cho các thiết bị di động */
+        flex-direction: row; /* Đảm bảo hiển thị theo dạng ngang */
+        padding: 4px 8px; /* Điều chỉnh padding cho navbar */
     }
-    
+
     .navbar-left,
     .navbar-right {
-        display: none; /* Ẩn menu ngang */
-        width: 100%;  /* Đảm bảo chiều rộng 100% khi chuyển sang menu dọc */
-        flex-direction: column; /* Chuyển các mục thành cột */
-        gap: 15px;
-    }
-    
-    .menu-icon {
-        display: block;
-    }
-    
-    .navbar.open .navbar-left,
-    .navbar.open .navbar-right {
-        display: flex; /* Hiển thị menu khi mở */
-    }
-    
-    /* Để menu hamburger có hiệu ứng */
-    .menu-icon.open span:nth-child(1) {
-        transform: rotate(45deg);
-        top: 10px;
+        display: flex; /* Hiển thị menu ngang */
+        width: 100%; /* Đảm bảo navbar chiếm toàn bộ chiều rộng */
+        justify-content: space-between; /* Đảm bảo các phần tử phân bổ đều */
+        gap: 10px; /* Giảm khoảng cách giữa các phần tử */
     }
 
-    .menu-icon.open span:nth-child(2) {
-        opacity: 0;
+    /* Thay đổi kích thước font cho các nút */
+    .nav-link {
+        font-size: 14px; /* Giảm kích thước chữ trên mobile */
+        padding: 8px 12px; /* Điều chỉnh padding cho các nút */
     }
-
-    .menu-icon.open span:nth-child(3) {
-        transform: rotate(-45deg);
-        bottom: 10px;
+    
+    /* Giảm kích thước nút */
+    .nav-link h3 {
+        font-size: 12px; /* Giảm kích thước chữ trong thẻ h3 */
     }
 }
 
 @media (min-width: 768px) {
     .menu-icon {
-        display: none;
+        display: none; /* Ẩn icon menu trên màn hình lớn */
     }
 }

@@ -14,9 +14,7 @@ import { CartProvider, useCart } from "./context/context";
 function App() {
   return (
     <CartProvider>
-      <Router>
         <AppContent />
-      </Router>
     </CartProvider>
   );
 }
@@ -27,6 +25,7 @@ function AppContent() {
 
   return (
     <>
+      <Router>
       <Header />
       <Banner />
       <Routes v7_startTransition={true}>
@@ -35,10 +34,10 @@ function AppContent() {
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/giohang" element={<GioHang />} />
       </Routes>
-
       <SlideAnh />
       <GetThuongHieu />
       <Footer />
+      </Router>
     </>
   );
 }

@@ -12,48 +12,28 @@ library.add(faArrowLeft);
 const ProductDetail = () => {
     const { id } = useParams(); // Get the product ID from URL
     const [product, setProduct] = useState(null); // State to store product data
-    const [imageUrl, setImageUrl] = useState(''); // State to store image URL
     const [error, setError] = useState(null); // State to store error messages
     const navigate = useNavigate(); // Hook to navigate programmatically
 
     // Effect to handle restoring scroll position
     useEffect(() => {
-        // Check if there's a saved scroll position in sessionStorage
-        const savedScrollPosition = sessionStorage.getItem('scrollPosition');
-        if (savedScrollPosition) {
-            window.scrollTo(0, savedScrollPosition); // Restore scroll position
-            sessionStorage.removeItem('scrollPosition'); // Clear saved scroll position
-        }
+        // const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+        // if (savedScrollPosition) {
+        //     window.scrollTo(0, savedScrollPosition); // Restore scroll position
+        //     sessionStorage.removeItem('scrollPosition'); // Clear saved scroll position
+        // }
 
         // Fetch product details
         const fetchProductDetail = async () => {
             try {
                 const response = await axios.get(`https://ditcuchungmay.linkpc.net/endpoints/SanPham/${id}`);
                 setProduct(response.data); // Set product data
-
-                // Download image if URL is present
-                if (response.data.hinhAnhUrl) {
-                    downloadImage(response.data.hinhAnhUrl);
-                }
             } catch (error) {
                 setError("Error fetching product details. Please try again later.");
                 console.error("Error fetching product detail", error);
             }
         };
 
-        const downloadImage = async (imageName) => {
-            try {
-                const response = await axios.get(
-                    `https://ditcuchungmay.linkpc.net/endpoints/SanPham/image/download/${imageName}`,
-                    { responseType: 'blob' }  // Set response type to blob to handle image
-                );
-                const imageUrl = URL.createObjectURL(response.data);
-                setImageUrl(imageUrl);
-            } catch (error) {
-                setError("Error downloading image. Please try again later.");
-                console.error("Error downloading image: ", error);
-            }
-        };
 
         fetchProductDetail(); // Fetch product details when component is mounted
     }, [id]);
@@ -112,7 +92,7 @@ const ProductDetail = () => {
             {/* Product Detail Section */}
             <div className="product-image"
                 style={{ 
-                    backgroundImage: `url(${imageUrl})`,
+                    backgroundImage: `url(https://ditcuchungmay.linkpc.net/endpoints/SanPham/image/download/${product.hinhAnhUrl})`,
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center', 
                     height: '400px', 
