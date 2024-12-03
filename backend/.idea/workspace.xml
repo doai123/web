@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
     "Spring Boot.NghiemtucApplication.executor": "Run",
     "git-widget-placeholder": "production",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/data/backend",
+    "last_opened_file_path": "C:/Users/hkhon/IdeaProjects/btl_web",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -122,6 +120,7 @@
       <workItem from="1732976392950" duration="3227000" />
       <workItem from="1733066805422" duration="1562000" />
       <workItem from="1733070601876" duration="31000" />
+      <workItem from="1733236385376" duration="724000" />
     </task>
     <servers />
   </component>
