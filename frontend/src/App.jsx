@@ -6,8 +6,9 @@ import './App.css';
 import Footer from "./footer/Footer";
 import GetThuongHieu from "./slideSanPham/GetThuongHieu";
 import SlideAnh from "./slide/SlideAnh";
-import MainThanWeb from "./slideSanPham/MainThanWeb";
-
+import ProductList from './slideSanPham/ProductList';
+import ProductDetail from './slideSanPham/ProductDetail';
+import GioHang from './slideSanPham/GioHang';
 import { CartProvider, useCart } from "./context/context";
 
 function App() {
@@ -24,14 +25,19 @@ function AppContent() {
 
   return (
     <>
-      
+      <Router>
       <Header />
       <Banner />
-   <MainThanWeb />
+      <Routes v7_startTransition={true}>
+        <Route path="/" element={<ProductList />} />
+        <Route path="/product-detail/:id" element={<ProductDetail />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/giohang" element={<GioHang />} />
+      </Routes>
       <SlideAnh />
       <GetThuongHieu />
       <Footer />
-     
+      </Router>
     </>
   );
 }
