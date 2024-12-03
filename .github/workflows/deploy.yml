@@ -59,6 +59,11 @@ jobs:
                 docker restart nginx
                 docker restart spring-container
               fi
+              fi
+               if [[ "$COMMIT_MESSAGE" == *"rebuild"* ]]; then
+                docker-compose build
+                docker-compose up -d
+              fi
 
             else
               echo "Docker is not installed. Exiting deployment."
