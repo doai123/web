@@ -79,6 +79,6 @@ jobs:
               cd /home/data
               git clone --branch production --single-branch https://github.com/doai123/web.git .
               docker-compose up -d
-              sleep 30
+              sleep 40
               docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
             fi
