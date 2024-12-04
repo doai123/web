@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/domain/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/domain/KhachHang.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backend/sercurity/SercurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/sercurity/SercurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/KhachHangService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/KhachHangService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +129,7 @@
       <workItem from="1733236385376" duration="724000" />
       <workItem from="1733330650326" duration="80000" />
       <workItem from="1733330823794" duration="17000" />
-      <workItem from="1733331450810" duration="2982000" />
+      <workItem from="1733331450810" duration="5040000" />
     </task>
     <servers />
   </component>
