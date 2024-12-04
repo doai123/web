@@ -18,6 +18,7 @@ public class KhachHang {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long maKhachHang;
+    private String roles = "User";
     private String ten;
     private String email;
     private String matKhau;

@@ -4,6 +4,7 @@ import backend.service.KhachHangService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -47,6 +48,10 @@ public class SercurityConfig {
                 .authorizeRequests()
                 .requestMatchers("/req/login", "/req/signup", "/css/**", "/js/**").permitAll()  // Cho phép đăng ký, CSS, JS không cần xác thực
                 .requestMatchers("/SanPham/**", "/SanPham/image/**").permitAll()  // Các trang sản phẩm không cần xác thực
+                .requestMatchers(HttpMethod.DELETE, "/SanPham/**").hasRole("ADMIN").
+                 requestMatchers(HttpMethod.PUT, "/SanPham/**").hasRole("ADMIN").
+                 requestMatchers(HttpMethod.POST, "/SanPham/**").hasRole("ADMIN").
+                 requestMatchers(HttpMethod.DELETE, "/delete/**").hasRole("ADMIN")
                 .anyRequest().authenticated()  // Yêu cầu xác thực cho tất cả các trang khác
                 .and()
                 .formLogin(form -> form

@@ -5,6 +5,7 @@ import backend.repository.KhachHangRepository;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -30,6 +31,7 @@ public class KhachHangService implements UserDetailsService {
             return User.builder()
                     .username(userObj.getTen())
                     .password(userObj.getMatKhau())
+                    .authorities(new SimpleGrantedAuthority(userObj.getRoles()))
                     .build();
         }else {
             throw new UsernameNotFoundException(username);

@@ -8,12 +8,10 @@
     import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
-    import org.springframework.web.bind.annotation.GetMapping;
-    import org.springframework.web.bind.annotation.PostMapping;
-    import org.springframework.web.bind.annotation.RequestBody;
-    import org.springframework.web.bind.annotation.RequestParam;
+    import org.springframework.web.bind.annotation.*;
 
     import java.util.HashMap;
+    import java.util.List;
     import java.util.Map;
 
     @Controller
@@ -56,6 +54,38 @@
             }
 
         }
+        @DeleteMapping("delete/delete-all")
+        public ResponseEntity<Map<String, String>> deleteAll() {
+            Map<String, String> response = new HashMap<>();
+            try {
+                khachHangRepository.deleteAll();  // Xóa tất cả khách hàng
+                response.put("message", "All customers have been deleted successfully.");
+                return ResponseEntity.ok(response);
+            } catch (Exception e) {
+                response.put("error", "Failed to delete all customers.");
+                return ResponseEntity.status(500).body(response);
+            }
+        }
+
+
+        @DeleteMapping("/delete/{id}")
+        public ResponseEntity<Map<String, String>> deleteById(@PathVariable("id") Long id) {
+            Map<String, String> response = new HashMap<>();
+            try {
+                if (khachHangRepository.existsById(id)) {
+                    khachHangRepository.deleteById(id);  // Xóa khách hàng theo ID
+                    response.put("message", "Customer with ID " + id + " has been deleted successfully.");
+                    return ResponseEntity.ok(response);
+                } else {
+                    response.put("error", "Customer with ID " + id + " not found.");
+                    return ResponseEntity.status(404).body(response);  // Trả về lỗi nếu không tìm thấy ID
+                }
+            } catch (Exception e) {
+                response.put("error", "Failed to delete customer.");
+                return ResponseEntity.status(500).body(response);
+            }
+        }
+
         @PostMapping(value = "/req/signup", consumes = "application/json")
         public ResponseEntity<Map<String, String>> createKhachhang(@RequestBody KhachHang khachHang) {
             Map<String, String> response = new HashMap<>();
@@ -78,6 +108,21 @@
                 response.put("message", "/endpoints/req/login");
                 return ResponseEntity.ok(response);
             }
+        }
+        @GetMapping("/get-all")
+        public ResponseEntity<List<KhachHang>> getAll() {
+            List<KhachHang> customers = khachHangRepository.findAll();
+            if (customers.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+            return ResponseEntity.ok(customers);
+        }
+
+        @GetMapping("/get/{id}")
+        public ResponseEntity<KhachHang> getById(@PathVariable("id") Long id) {
+            return khachHangRepository.findById(id)
+                    .map(customer -> ResponseEntity.ok(customer))
+                    .orElseGet(() -> ResponseEntity.notFound().build());
         }
 
     }
