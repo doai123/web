@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.github/workflows/deploy.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../.github/workflows/deploy.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../default.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../default.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssl/full-chain.pem" beforeDir="false" afterPath="$PROJECT_DIR$/../ssl/full-chain.pem" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssl/pass.key" beforeDir="false" afterPath="$PROJECT_DIR$/../ssl/pass.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ssl/server.cer" beforeDir="false" afterPath="$PROJECT_DIR$/../ssl/server.cer" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +49,7 @@
     "Spring Boot.NghiemtucApplication.executor": "Run",
     "git-widget-placeholder": "production",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/hkhon/IdeaProjects/btl_web",
+    "last_opened_file_path": "C:/data/frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,6 +59,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\data\backend\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager" selected="Spring Boot.NghiemtucApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="app" />
@@ -121,6 +131,8 @@
       <workItem from="1733066805422" duration="1562000" />
       <workItem from="1733070601876" duration="31000" />
       <workItem from="1733236385376" duration="724000" />
+      <workItem from="1733330650326" duration="80000" />
+      <workItem from="1733330823794" duration="17000" />
     </task>
     <servers />
   </component>

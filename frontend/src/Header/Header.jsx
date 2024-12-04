@@ -36,10 +36,10 @@ function Header() {
       </div>
       <div className="navbar-right">
         {/* External links can still use <a> */}
-        <a href="https://ditcuchungmay.linkpc.net/endpoints/req/login">
+        <a href="https://doubleshop.linkpc.net/endpoints/req/login">
           <h3 className="nav-link">Đăng Nhập</h3>
         </a>
-        <a href="https://ditcuchungmay.linkpc.net/endpoints/req/signup">
+        <a href="https://doubleshop.linkpc.net/endpoints/req/signup">
           <h3 className="nav-link">Đăng Ký</h3>
         </a>
       </div>

@@ -20,7 +20,7 @@ const ProductList = ({ maSanPham }) => {
 
       try {
         const response = await axios.get(
-          `https://ditcuchungmay.linkpc.net/endpoints/SanPham?page=${page}&size=${size}`
+          `https://doubleshop.linkpc.net/endpoints/SanPham?page=${page}&size=${size}`
         );
         setSanPhams(response.data.content || []);
         setLoading(false);
@@ -37,7 +37,7 @@ const ProductList = ({ maSanPham }) => {
     try {
       // Tải ảnh từ API
       const response = await axios.get(
-        `https://ditcuchungmay.linkpc.net/endpoints/SanPham/image/download/${imageName}`,
+        `https://doubleshop.linkpc.net/endpoints/SanPham/image/download/${imageName}`,
         { responseType: 'blob' }  // Chúng ta cần lấy ảnh dưới dạng blob
       );
       const imageUrl = URL.createObjectURL(response.data);  // Tạo URL từ blob

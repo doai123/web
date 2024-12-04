@@ -16,7 +16,7 @@ function GetThuongHieu() {
     const fetchSanPhamByThuongHieu = async () => {
       try {
         const response = await axios.get(
-          `https://ditcuchungmay.linkpc.net/endpoints/SanPham/thuongHieu/${thuongHieu}`
+          `https://doubleshop.linkpc.net/endpoints/SanPham/thuongHieu/${thuongHieu}`
         );
         setProducts(response.data); // Set the products in state
       } catch (error) {
@@ -31,7 +31,7 @@ function GetThuongHieu() {
   const downloadImage = async (imageName) => {
     try {
       const response = await axios.get(
-        `https://ditcuchungmay.linkpc.net/endpoints/SanPham/image/download/${imageName}`,
+        `https://doubleshop.linkpc.net/endpoints/SanPham/image/download/${imageName}`,
         { responseType: "blob" }
       );
       const imageUrl = URL.createObjectURL(response.data); // Create a URL from the blob

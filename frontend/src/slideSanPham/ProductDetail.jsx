@@ -26,7 +26,7 @@ const ProductDetail = () => {
         // Fetch product details
         const fetchProductDetail = async () => {
             try {
-                const response = await axios.get(`https://ditcuchungmay.linkpc.net/endpoints/SanPham/${id}`);
+                const response = await axios.get(`https://doubleshop.linkpc.net/endpoints/SanPham/${id}`);
                 setProduct(response.data); // Set product data
             } catch (error) {
                 setError("Error fetching product details. Please try again later.");
@@ -92,7 +92,7 @@ const ProductDetail = () => {
             {/* Product Detail Section */}
             <div className="product-image"
                 style={{ 
-                    backgroundImage: `url(https://ditcuchungmay.linkpc.net/endpoints/SanPham/image/download/${product.hinhAnhUrl})`,
+                    backgroundImage: `url(https://doubleshop.linkpc.net/endpoints/SanPham/image/download/${product.hinhAnhUrl})`,
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center', 
                     height: '400px', 
