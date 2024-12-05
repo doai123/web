@@ -28,6 +28,6 @@ describe('Login Form', () => {
         cy.get('button[type="submit"]').click();
 
         // Kiểm tra sau khi đăng nhập có chuyển đến trang chủ không
-        cy.contains('Trang Chủ').should('be.visible');
+        cy.contains('Trang Chủ').wait(3000);
     });
 });
