@@ -31,7 +31,7 @@ public class KhachHangService implements UserDetailsService {
             return User.builder()
                     .username(userObj.getTen())
                     .password(userObj.getMatKhau())
-                    .authorities(new SimpleGrantedAuthority(userObj.getRoles()))
+                    .authorities(new SimpleGrantedAuthority("ROLE_" + userObj.getRoles()))
                     .build();
         }else {
             throw new UsernameNotFoundException(username);
