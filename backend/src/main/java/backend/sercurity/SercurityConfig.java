@@ -61,7 +61,7 @@ public class SercurityConfig {
                         .failureUrl("/endpoints/req/login?error=true")  // Chuyển hướng khi đăng nhập thất bại
                 )
                 .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)  // Tạo session nếu cần
+                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)  // Tạo session nếu cần
                 .invalidSessionUrl("/endpoints/req/login")  // URL khi session hết hạn
                 .maximumSessions(1).maxSessionsPreventsLogin(true)  // Giới hạn số lần đăng nhập
         )
