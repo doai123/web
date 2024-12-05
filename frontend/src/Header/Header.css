@@ -14,8 +14,14 @@
     padding: 10px 5%;  
     box-sizing: border-box;
     z-index: 1000; 
-    transition: padding 0.3s ease; 
- margin-bottom: 50px;
+    transition: padding 0.3s ease;
+    /* Thêm padding-top cho phần tử tiếp theo tránh bị che khuất */
+    margin-bottom: 50px;
+}
+
+/* Bổ sung padding-top cho phần tử tiếp theo tránh bị navbar che khuất */
+body {
+    padding-top: 60px; /* Điều chỉnh theo chiều cao của navbar */
 }
 
 .navbar-left,
@@ -23,6 +29,7 @@
     display: flex;
     gap: 30px;  
 }
+
 .navbar-left {
     justify-content: flex-start;
 }
@@ -35,22 +42,23 @@
     cursor: pointer;
     padding: 8px 15px;  
     font-size: 18px;  
-    transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
-
-
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;  /* Sử dụng transform thay vì padding */
 }
 
 .navbar a {
     text-decoration: none;  /* Loại bỏ gạch chân */
     color: inherit;
 }
+
 .nav-link:hover {
     background-color: #333333;
     color: #FFD700;
     border-radius: 5px;
-    padding: 8px 20px;  
+    /* Sử dụng transform để không thay đổi kích thước phần tử */
+    transform: scale(1.1);  
 }
 
+/* Ẩn menu icon trên màn hình lớn */
 .menu-icon {
     display: none;
     cursor: pointer;
@@ -82,7 +90,6 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    /* Giữ navbar hiển thị ngang trên mobile */
     .navbar {
         flex-direction: row; /* Đảm bảo hiển thị theo dạng ngang */
         padding: 4px 8px; /* Điều chỉnh padding cho navbar */
