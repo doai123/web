@@ -47,7 +47,7 @@ public class SercurityConfig {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests()
-                .requestMatchers("/req/login", "/req/signup", "/css/**", "/js/**","check-auth").permitAll()  // Cho phép đăng ký, CSS, JS không cần xác thực
+                .requestMatchers("/req/login", "/req/signup", "/css/**", "/js/**","/check-auth").permitAll()  // Cho phép đăng ký, CSS, JS không cần xác thực
                 .requestMatchers("/SanPham/**", "/SanPham/image/**").permitAll()  // Các trang sản phẩm không cần xác thực
                 .requestMatchers(HttpMethod.DELETE, "/SanPham/**").hasRole("ADMIN").
                  requestMatchers(HttpMethod.PUT, "/SanPham/**").hasRole("ADMIN").
