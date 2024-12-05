@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../btl_web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../btl_web/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../btl_web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../btl_web/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../btl_web/tests/e2e/homepage.spec.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../btl_web/tests/e2e/login.spec.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,28 +33,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.NghiemtucApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/data/app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.NghiemtucApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/data/backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "AndroidSdkUpdater",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\data\backend\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.NghiemtucApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="app" />
       <method v="2">
@@ -68,6 +69,14 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="app" />
       <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NghiemtucApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="doubleshop" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="backend.NghiemtucApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,10 +123,32 @@
       <workItem from="1732968110938" duration="62000" />
       <workItem from="1732968186733" duration="5727000" />
       <workItem from="1732976392950" duration="3227000" />
+      <workItem from="1733066805422" duration="1562000" />
+      <workItem from="1733070601876" duration="31000" />
+      <workItem from="1733236385376" duration="724000" />
+      <workItem from="1733330650326" duration="80000" />
+      <workItem from="1733330823794" duration="17000" />
+      <workItem from="1733331450810" duration="5040000" />
+      <workItem from="1733337875959" duration="324000" />
+      <workItem from="1733338267757" duration="27000" />
+      <workItem from="1733375761313" duration="605000" />
+      <workItem from="1733376393815" duration="9513000" />
+      <workItem from="1733405906383" duration="4027000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
