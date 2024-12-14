@@ -13,6 +13,7 @@ public class Jwt {
     private final SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Khóa bí mật của bạn
     private final long EXPIRATION_TIME = 3600000; // Thời gian hết hạn (1 giờ)
 
+
     // Tạo JWT
     public String generateToken(String username,String role) {
         return Jwts.builder()
@@ -37,10 +38,11 @@ public class Jwt {
         return (String) getClaims(token).get("role"); // Trích xuất role từ claims
     }
 
+
     // 4. Xác minh JWT
-    public boolean validateToken(String token, String username) {
+    public boolean validateToken(String token, String username,String role) {
         String extractedUsername = extractUsername(token);
-        return extractedUsername.equals(username) && !isTokenExpired(token);
+        return extractedUsername.equals(username) && extractRole(role).equals(role) && !isTokenExpired(token);
     }
 
     // 5. Lấy Claims từ JWT
