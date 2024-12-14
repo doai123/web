@@ -1,7 +1,6 @@
 package backend.security;
 
 import backend.domain.KhachHang;
-import backend.service.KhachHangServices;
 import backend.util.Jwt;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -20,10 +19,7 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private Jwt jwt;
-
-    @Autowired
-    private KhachHangServices khachHangServices;
-
+    private UserDetails userDetails;
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
@@ -46,10 +42,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            KhachHang khachHang = (KhachHang) khachHangServices.loadUserByUsername(username);
-            if (jwt.validateToken(jwtString, khachHang.getUsername(),khachHang.getRoles())) {
+            if (jwt.validateToken(jwtString, username,role)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                        khachHang, null, khachHang.getAuthorities());
+                        userDetails, null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
