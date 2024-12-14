@@ -17,7 +17,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
         http.csrf(csrf -> csrf.disable()) // Disable CSRF
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/req/login", "/req/signup").permitAll() // Allow access without authentication
+                        .requestMatchers("/req/login", "/req/signupm","/admin-login").permitAll() // Allow access without authentication
                         .requestMatchers(HttpMethod.GET, "/SanPham/**").permitAll() // Public API
                         .requestMatchers("/get/**", "/get-all", "/delete/**").hasRole("ADMIN") // Protected endpoints
                         .anyRequest().authenticated() // All other requests require authentication
