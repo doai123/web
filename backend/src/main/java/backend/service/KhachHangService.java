@@ -26,14 +26,12 @@ public class KhachHangService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<KhachHang> user = khachHangRepository.findByTen(username);
-        System.out.println(username);
         if(user.isPresent()) {
-            System.out.println("user tồn tại");
             var userObj = user.get();
             return User.builder()
                     .username(userObj.getTen())
                     .password(userObj.getMatKhau())
-                    .authorities(new SimpleGrantedAuthority("ROLE_" + userObj.getRoles()))
+                    .authorities(new SimpleGrantedAuthority(userObj.getRoles()))
                     .build();
         }else {
             throw new UsernameNotFoundException(username);

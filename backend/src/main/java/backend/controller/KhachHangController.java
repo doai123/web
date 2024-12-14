@@ -3,10 +3,9 @@
     import backend.domain.KhachHang;
     import backend.repository.KhachHangRepository;
     import backend.service.AuthenticationServices;
+    import backend.util.Jwt;
     import org.springframework.beans.factory.annotation.Autowired;
-    import org.springframework.http.HttpStatus;
     import org.springframework.http.ResponseEntity;
-    import org.springframework.security.core.Authentication;
     import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
@@ -18,6 +17,8 @@
 
     @Controller
     public class KhachHangController {
+        @Autowired
+        private Jwt jwt;
         @Autowired
         private AuthenticationServices authenticationServices;
         @Autowired
@@ -106,8 +107,8 @@
                 khachHang.setMatKhau(encodedPassword);
 
                 khachHangRepository.save(khachHang);
-
-                response.put("message", "/endpoints/req/login");
+                String token = jwt.generateToken(khachHang.getTen(),khachHang.getRoles());
+                response.put("message", token);
                 return ResponseEntity.ok(response);
             }
         }
@@ -126,13 +127,5 @@
                     .map(customer -> ResponseEntity.ok(customer))
                     .orElseGet(() -> ResponseEntity.notFound().build());
         }
-        @GetMapping("/check-auth")
-        public ResponseEntity<String> checkAuth(Authentication authentication) {
-            if (authentication == null || !authentication.isAuthenticated()) {
-                return ResponseEntity.status(401).body("Not authenticated");
-            }
-            return ResponseEntity.ok("Authenticated as " + authentication.getName());
-        }
-
 
     }
