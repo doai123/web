@@ -1,7 +1,7 @@
 package backend.security;
 
 import backend.domain.KhachHang;
-import backend.repository.KhachHangRepository;
+import backend.service.KhachHangServices;
 import backend.util.Jwt;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -15,15 +15,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
-import java.util.Optional;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private Jwt jwt;
+
     @Autowired
-    private KhachHangRepository khachHangRepository;
-    private UserDetails userDetails;
+    private KhachHangServices khachHangServices;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -47,16 +46,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-            Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
-            if (khachHang.isPresent()) {
-                // Kiểm tra tính hợp lệ của token
-                if (jwt.validateToken(jwtString, khachHang.get().getTen(), khachHang.get().getRoles())) {
-                    // Tạo đối tượng Authentication từ người dùng và quyền của họ
-                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
-                            userDetails, null, userDetails.getAuthorities());
-                    // Đặt Authentication vào SecurityContext
-                    SecurityContextHolder.getContext().setAuthentication(authToken);
-                }
+            KhachHang khachHang = (KhachHang) khachHangServices.loadUserByUsername(username);
+            if (jwt.validateToken(jwtString, khachHang.getUsername(),khachHang.getRoles())) {
+                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
+                        khachHang, null, khachHang.getAuthorities());
+                SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
 
