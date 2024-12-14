@@ -36,8 +36,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
             jwtString = authorizationHeader.substring(7);
-            username = jwt.extractUsername(jwtString);
-            role = jwt.extractRole(jwtString); // Lấy role từ JWT
+            try {
+                username = jwt.extractUsername(jwtString);
+                role = jwt.extractRole(jwtString); // Lấy role từ JWT
+            } catch (Exception e) {
+                // Xử lý lỗi khi JWT không hợp lệ hoặc lỗi trong quá trình giải mã
+                System.out.println("Invalid JWT: " + e.getMessage());
+            }
         }
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
