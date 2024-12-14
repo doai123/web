@@ -15,7 +15,7 @@ import java.util.Collections;
 @Getter
 @Setter
 @Table(name = "khach_hang")
-public class KhachHang  {
+public class KhachHang {
 
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
