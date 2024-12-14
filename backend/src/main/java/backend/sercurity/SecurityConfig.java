@@ -19,7 +19,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeRequests()
-                .requestMatchers("/req/login").permitAll() // Các API không cần xác thực
                 .requestMatchers("/req/signup").permitAll()
                 .requestMatchers(HttpMethod.GET,"/SanPham/**").permitAll()
                 .requestMatchers("/get/**").hasRole("ADMIN")
