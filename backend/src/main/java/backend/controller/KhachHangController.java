@@ -15,6 +15,7 @@
     import java.util.HashMap;
     import java.util.List;
     import java.util.Map;
+    import java.util.Optional;
 
     @Controller
     public class KhachHangController {
@@ -117,6 +118,23 @@
                 }
 
                 return ResponseEntity.ok(response);
+            }
+        }
+        @PostMapping("/admin-login")
+        public String generateAdminToken(@RequestParam String username) {
+            // Kiểm tra người dùng trong cơ sở dữ liệu
+            Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
+            if (khachHang.isPresent()) {
+                String role = khachHang.get().getRoles();
+
+                // Kiểm tra nếu người dùng là admin
+                if ("ROLE_ADMIN".equals(role)) {
+                    return jwt.generateToken(username, role); // Tạo và trả về token cho admin
+                } else {
+                    throw new RuntimeException("User is not an admin");
+                }
+            } else {
+                throw new RuntimeException("User not found");
             }
         }
         @GetMapping("/get-all")
