@@ -17,7 +17,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthenticationFilter jwtAuthenticationFilter) throws Exception {
-        http.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable())// Giữ disable CSRF trong RESTful API nếu bạn không sử dụng session
+        http.csrf(csrf -> csrf.disable())
                 .authorizeRequests()
                 .requestMatchers("/req/login").permitAll() // Các API không cần xác thực
                 .requestMatchers("/req/signup").permitAll()
