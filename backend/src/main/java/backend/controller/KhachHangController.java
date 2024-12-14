@@ -5,6 +5,7 @@
     import backend.service.AuthenticationServices;
     import backend.util.Jwt;
     import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.http.HttpStatus;
     import org.springframework.http.ResponseEntity;
     import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.stereotype.Controller;
@@ -107,8 +108,14 @@
                 khachHang.setMatKhau(encodedPassword);
 
                 khachHangRepository.save(khachHang);
-                String token = jwt.generateToken(khachHang.getTen(),khachHang.getRoles());
-                response.put("message", token);
+                try {
+                    String token = jwt.generateToken(khachHang.getTen(), khachHang.getRoles());
+                    response.put("message", token);
+                } catch (Exception e) {
+                    response.put("error", "Error generating JWT token: " + e.getMessage());
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
+                }
+
                 return ResponseEntity.ok(response);
             }
         }
