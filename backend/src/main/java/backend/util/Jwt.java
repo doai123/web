@@ -37,7 +37,6 @@ public class Jwt {
     public String extractRole(String token) {
         return (String) getClaims(token).get("role"); // Trích xuất role từ claims
     }
-hihhgi
 
     // 4. Xác minh JWT
     public boolean validateToken(String token, String username,String role) {
