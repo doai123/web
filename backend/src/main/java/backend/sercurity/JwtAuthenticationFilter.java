@@ -16,7 +16,7 @@ import java.io.IOException;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
+    @Autowired
     private Jwt jwt;
 
     @Autowired
@@ -50,4 +50,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         filterChain.doFilter(request, response);
     }
+    @Override
+    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+        String path = request.getRequestURI();
+        return path.equals("/req/signup") || path.equals("/req/login"); // Bỏ qua xác thực với các endpoint này
+    }
+
 }

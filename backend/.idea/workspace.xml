@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/sercurity/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/sercurity/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/sercurity/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/sercurity/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/KhachHangService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +43,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.NghiemtucApplication (1).executor": "Run",
     "Spring Boot.NghiemtucApplication.executor": "Run",
     "git-widget-placeholder": "production",
     "kotlin-language-version-configured": "true",
@@ -60,7 +62,7 @@
       <recent name="C:\data\backend\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.NghiemtucApplication">
+  <component name="RunManager" selected="Spring Boot.NghiemtucApplication (1)">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="app" />
       <method v="2">
@@ -131,7 +133,7 @@
       <workItem from="1733330823794" duration="17000" />
       <workItem from="1733417790275" duration="54000" />
       <workItem from="1734147137964" duration="7642000" />
-      <workItem from="1734155690362" duration="1652000" />
+      <workItem from="1734155690362" duration="2870000" />
     </task>
     <servers />
   </component>
