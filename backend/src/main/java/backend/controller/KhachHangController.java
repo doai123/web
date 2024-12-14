@@ -121,22 +121,34 @@
             }
         }
         @PostMapping("/admin-login")
-        public String generateAdminToken(@RequestParam String username) {
-            // Kiểm tra người dùng trong cơ sở dữ liệu
-            Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
-            if (khachHang.isPresent()) {
-                String role = khachHang.get().getRoles();
+        public ResponseEntity<?> generateAdminToken(@RequestParam String username) {
+            try {
+                // Kiểm tra người dùng trong cơ sở dữ liệu
+                Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
 
-                // Kiểm tra nếu người dùng là admin
-                if ("ROLE_ADMIN".equals(role)) {
-                    return jwt.generateToken(username, role); // Tạo và trả về token cho admin
+                if (khachHang.isPresent()) {
+                    String role = khachHang.get().getRoles();
+
+                    // Kiểm tra nếu người dùng là admin
+                    if ("ROLE_ADMIN".equals(role)) {
+                        String token = jwt.generateToken(username, role); // Tạo token
+                        return ResponseEntity.ok(token); // Trả về token nếu thành công
+                    } else {
+                        throw new RuntimeException("User is not an admin");
+                    }
                 } else {
-                    throw new RuntimeException("User is not an admin");
+                    throw new RuntimeException("User not found");
                 }
-            } else {
-                throw new RuntimeException("User not found");
+            } catch (RuntimeException e) {
+                // Bắt lỗi và trả về thông báo rõ ràng
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            } catch (Exception e) {
+                // Bắt các lỗi không mong muốn
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                        .body("An unexpected error occurred: " + e.getMessage());
             }
         }
+
         @GetMapping("/get-all")
         public ResponseEntity<List<KhachHang>> getAll() {
             List<KhachHang> customers = khachHangRepository.findAll();
