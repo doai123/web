@@ -67,6 +67,10 @@ public class SanPhamService {
 return sanPhams;
 
     }
+    // Lấy danh sách sản phẩm sắp xếp theo thương hiệu
+    public List<SanPham> getAllSanPhamGroupedByThuongHieu() {
+        return sanPhamRepository.findAllByOrderByThuongHieuAsc();
+    }
 
 
 
@@ -115,6 +119,9 @@ return sanPhams;
                 return null; // File không tồn tại
             }
         }
+    public List<SanPham> searchSanPhamByKeyword(String keyword) {
+        return sanPhamRepository.searchByKeyword(keyword);
+    }
 
 
 }

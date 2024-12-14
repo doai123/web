@@ -109,4 +109,14 @@ public ResponseEntity<InputStreamResource> downloadImage(@PathVariable String im
               // Đặt Content-Type cho hình ảnh (JPEG, PNG, v.v.)
                 .body(new InputStreamResource(fileInputStream));
     }
+    @GetMapping("/group-by-brand")
+    public ResponseEntity<List<SanPham>> getAllSanPhamGroupedByThuongHieu() {
+        List<SanPham> sanPhamList = sanPhamService.getAllSanPhamGroupedByThuongHieu();
+        return ResponseEntity.ok(sanPhamList);
+    }
+    @GetMapping("/search")
+    public ResponseEntity<List<SanPham>> searchSanPham(@RequestParam String keyword) {
+        List<SanPham> sanPhamList = sanPhamService.searchSanPhamByKeyword(keyword);
+        return ResponseEntity.ok(sanPhamList);
+    }
 }
