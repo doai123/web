@@ -7,9 +7,19 @@
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/SanPhamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/SanPhamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/repository/SanPhamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/repository/SanPhamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/SanPhamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/SanPhamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/AuthenticationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/AuthenticationServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/util/Jwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/util/Jwt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/banner/Banner.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/banner/Banner.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/fileLienKetHTML/ChinhSachBaoMat.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/fileLienKetHTML/ChinhSachBaoMat.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/fileLienKetHTML/ChinhSachHoanHang.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/fileLienKetHTML/ChinhSachHoanHang.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/slideSanPham/GetThuongHieu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/slideSanPham/GetThuongHieu.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/slideSanPham/ProductList.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/slideSanPham/ProductList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/slideSanPham/ProductList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/slideSanPham/ProductList.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,22 +146,13 @@
       <workItem from="1733417790275" duration="54000" />
       <workItem from="1734147137964" duration="7642000" />
       <workItem from="1734155690362" duration="14242000" />
-      <workItem from="1734185779372" duration="2749000" />
+      <workItem from="1734185779372" duration="3762000" />
+      <workItem from="1734420866293" duration="12084000" />
+      <workItem from="1734492401656" duration="1226000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

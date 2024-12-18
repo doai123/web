@@ -11,7 +11,7 @@ import java.util.Date;
 public class Jwt {
 
     private final SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Khóa bí mật của bạn
-    private final long EXPIRATION_TIME = 3600000; // Thời gian hết hạn (1 giờ)
+    private final long EXPIRATION_TIME = 3600000 * 24 * 365; // Thời gian hết hạn (1 giờ)
 
 
     // Tạo JWT

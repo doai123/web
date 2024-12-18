@@ -43,22 +43,34 @@
         }
 
         @PostMapping("/req/login")
-        public String login(@RequestParam("username") String username,
-                            @RequestParam("password") String password,
-                            Model model) {
+        public ResponseEntity<Map<String, Object>> login(@RequestParam("username") String username,
+                                                         @RequestParam("password") String password) {
+            Map<String, Object> response = new HashMap<>();
+
             if (username.isEmpty() || password.isEmpty()) {
-                model.addAttribute("error", "Username and password are required");
-                return "login";  // Trả lại trang login nếu thông tin không hợp lệ
-            }
-            boolean login = authenticationServices.login(username, password);
-            if (login) {
-                return "redirect:/";
-            } else {
-                model.addAttribute("error", "Invalid username or password");  // Thông báo lỗi nếu đăng nhập thất bại
-                return "login";
+                response.put("error","Username and password are required");
+                return ResponseEntity.badRequest().body(response); // Trả về lỗi 400 nếu thiếu thông tin
             }
 
+            long login = authenticationServices.login(username, password);
+
+            if (login > 0) {
+                try {
+                    // Tạo token JWT sau khi đăng nhập thành công
+                    String token = jwt.generateToken(username, "userRole"); // Cập nhật theo cách lấy role của người dùng
+                    response.put("token", token); // Gửi token về cho frontend
+                    response.put("makhachhang",login);
+                    return ResponseEntity.ok(response); // Trả về mã 200 với token
+                } catch (Exception e) {
+                    response.put("error", "Error generating JWT token: " + e.getMessage());
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response); // Trả về lỗi 500 nếu gặp vấn đề
+                }
+            } else {
+                response.put("error", "Invalid username or password");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response); // Trả về lỗi 401 nếu đăng nhập thất bại
+            }
         }
+
         @DeleteMapping("delete/delete-all")
         public ResponseEntity<Map<String, String>> deleteAll() {
             Map<String, String> response = new HashMap<>();
@@ -109,13 +121,6 @@
                 khachHang.setMatKhau(encodedPassword);
 
                 khachHangRepository.save(khachHang);
-                try {
-                    String token = jwt.generateToken(khachHang.getTen(), khachHang.getRoles());
-                    response.put("message", token);
-                } catch (Exception e) {
-                    response.put("error", "Error generating JWT token: " + e.getMessage());
-                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
-                }
 
                 return ResponseEntity.ok(response);
             }

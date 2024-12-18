@@ -40,8 +40,43 @@
                 return;
             }
 
-            // Nếu tất cả hợp lệ, gửi form
-            document.querySelector("form").submit();  // Gửi form nếu dữ liệu hợp lệ
+            // Gửi form nếu tất cả hợp lệ
+            submitLoginForm(username, password);
+        }
+
+        // Function to send login request via fetch
+        function submitLoginForm(username, password) {
+            const data = {
+                username: username,
+                password: password
+            };
+
+            fetch('/endpoints/req/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.token) {
+                        // Save token to localStorage
+                        const makhachang = data.makhachang;  // Assuming backend sends this ID
+                        const localStorageKey = `key${makhachang}`;
+                        const userData = { token: data.token };
+                        localStorage.setItem(localStorageKey, JSON.stringify(userData));
+
+                        // Redirect to home or desired page after successful login
+                        window.location.href = "/"; // Or change to desired redirect URL
+                    } else {
+                        alert(data.error || 'Login failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred during login');
+                });
         }
 
         // Gắn sự kiện khi form submit
@@ -69,7 +104,6 @@
             <label th:if="${error}" th:text="${error}" class="text-center redText"></label>
         </div>
 
-
         <div class="inputbox">
             <ion-icon name="person-outline"></ion-icon>
             <input name="username" id="ten" type="text" required>
@@ -82,14 +116,11 @@
             <label for="password">Password</label>
         </div>
 
-
         <div class="register">
             <p><a href="#">Forget Password?</a></p>
         </div>
 
-
         <button type="submit">Log in</button>
-
 
         <div class="register">
             <p>Don't have an account? <a href="/endpoints/req/signup">Register!!</a></p>

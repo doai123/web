@@ -16,17 +16,17 @@ public class AuthenticationServices {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public boolean login(String username,String password) throws UsernameNotFoundException {
+    public Long login(String username,String password) throws UsernameNotFoundException {
         Optional<KhachHang> user = khachHangRepository.findByTen(username);
         if(user.isPresent()) {
             boolean isPasswordMatch = passwordEncoder.matches(password, user.get().getMatKhau());
             if(isPasswordMatch){
-                return true;
+                return user.get().getMaKhachHang();
             }else {
-                return false;
+                return (long) 0;
             }
         }else {
-            return false;
+            return (long )0;
 
         }
     }
