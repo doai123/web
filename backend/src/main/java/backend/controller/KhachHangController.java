@@ -46,6 +46,7 @@
         public ResponseEntity<Map<String, Object>> login(@RequestParam("username") String username,
                                                          @RequestParam("password") String password) {
             Map<String, Object> response = new HashMap<>();
+            Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
 
             if (username.isEmpty() || password.isEmpty()) {
                 response.put("error","Username and password are required");
@@ -60,6 +61,7 @@
                     String token = jwt.generateToken(username, "userRole"); // Cập nhật theo cách lấy role của người dùng
                     response.put("token", token); // Gửi token về cho frontend
                     response.put("makhachhang",login);
+                    response.put("ten",khachHang.get().getTen());
                     return ResponseEntity.ok(response); // Trả về mã 200 với token
                 } catch (Exception e) {
                     response.put("error", "Error generating JWT token: " + e.getMessage());

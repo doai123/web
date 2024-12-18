@@ -7,9 +7,6 @@
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/AuthenticationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/AuthenticationServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/util/Jwt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/util/Jwt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" afterDir="false" />
@@ -149,6 +146,7 @@
       <workItem from="1734185779372" duration="3762000" />
       <workItem from="1734420866293" duration="12084000" />
       <workItem from="1734492401656" duration="1226000" />
+      <workItem from="1734493797355" duration="1449000" />
     </task>
     <servers />
   </component>
