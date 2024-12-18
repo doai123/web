@@ -14,7 +14,7 @@ describe('Login Form', () => {
         cy.wait(1000);
         cy.get('input[name="password"]').type(randomPassword);
         cy.wait(1000);
-        cy.get('input[name="passwordcon"]').type(randomPassword);
+        cy.get('input[name="confirmPassword"]').type(randomPassword);
         cy.wait(1000);
         cy.get('button[type="submit"]').click();
 
@@ -29,5 +29,7 @@ describe('Login Form', () => {
 
         // Kiểm tra sau khi đăng nhập có chuyển đến trang chủ không
         cy.contains('Trang Chủ').wait(3000);
+        cy.contains('Đăng Xuất').wait(3000);
+
     });
 });
