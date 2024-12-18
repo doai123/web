@@ -2,8 +2,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';  // Import Router và Routes từ react-router-dom
 
-import App from './App.jsx';
-import MainThanWeb from './slideSanPham/MainThanWeb.jsx'; // Import MainThanWeb
+import App from './App.jsx';  // Import App
+import MainThanWeb from './slideSanPham/MainThanWeb.jsx';  // Import MainThanWeb
 
 import ChinhSachBaoMat from './fileLienKetHTML/ChinhSachBaoMat.jsx';
 import Contact from './fileLienKetHTML/Contact.jsx';
@@ -17,9 +17,13 @@ import ChinhSachHoanHang from './fileLienKetHTML/ChinhSachHoanHang.jsx';
 import ProductList from './slideSanPham/ProductList.jsx';
 import ProductDetail from './slideSanPham/ProductDetail.jsx';
 import GioHang from './slideSanPham/GioHang.jsx';
-
+import LoginForm from './login/login.jsx';
+import SignupForm from './signup/signup.jsx';
+import { AuthProvider } from "./context/context";
+// Chỉ cần bao bọc toàn bộ ứng dụng trong Router
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+  <AuthProvider>
     <Router>  {/* Bọc toàn bộ ứng dụng trong Router */}
       <Routes>
         <Route path="/" element={<App />} />  {/* Trang chính */}
@@ -32,13 +36,14 @@ createRoot(document.getElementById('root')).render(
         <Route path="/GioiThieu" element={<GioiThieu />} />
         <Route path="/LienHeAdmin" element={<LienHeAdmin />} />
         <Route path="/ChinhSachBaoMat" element={<ChinhSachBaoMat />} />
-
-
+        <Route path="/Login" element={<LoginForm />} />
+        <Route path="/Signup" element={<SignupForm />} />
         <Route path="/" element={<ProductList />} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/giohang" element={<GioHang />} />
       </Routes>
     </Router>
+    </AuthProvider>
   </StrictMode>
 );

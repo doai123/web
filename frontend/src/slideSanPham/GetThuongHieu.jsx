@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import "./GetThuongHieu.css"; // Assuming the CSS file is named GetThuongHieu.css
+import  "./GetThuongHieu.css"; // Assuming the CSS file is named GetThuongHieu.css
 
 
 

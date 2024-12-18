@@ -11,7 +11,41 @@
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 80%;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .filter {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .filter-button.active {
+    background-color: #007bff;
+    color: white;
+  }
 /* Phân trang */
 .pagination {
     display: flex;

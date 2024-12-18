@@ -1,26 +1,60 @@
-// context.jsx
-import { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Tạo CartContext
-const CartContext = createContext();
+// Tạo context
+const AuthContext = createContext();
 
-// Tạo CartProvider để cung cấp state và setter cho toàn bộ ứng dụng
-export function CartProvider({ children }) {
-  const [isCartVisible, setIsCartVisible] = useState(false);
+// Hook để sử dụng context
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
 
-  // Hàm toggle để thay đổi trạng thái
-  const toggleCartVisibility = () => {
-    setIsCartVisible(prev => !prev);
+// Provider chứa trạng thái makhachhang
+export const AuthProvider = ({ children }) => {
+  const [makhachhang, setMakhachhang] = useState(null);
+  const [ten, setTen] = useState(null);
+  const [isLogin, setIsLogin] = useState(false);
+
+  // Khôi phục trạng thái từ localStorage khi trang được tải lại
+  useEffect(() => {
+    const storedMakhachhang = localStorage.getItem("makhachhang");
+    const storedTen = localStorage.getItem("ten");
+    const storedToken = localStorage.getItem("token");
+    
+    if (storedMakhachhang && storedTen && storedToken) {
+      setMakhachhang(storedMakhachhang);
+      setTen(storedTen);
+      setIsLogin(true);
+    }
+  }, []);
+
+  // Hàm đăng nhập, lưu makhachhang vào context và localStorage
+  const login = (makhachhangId, token, ten, islogin) => {
+    setMakhachhang(makhachhangId);
+    setTen(ten);
+    setIsLogin(islogin);
+    console.log(ten, islogin);
+
+    // Lưu thông tin vào localStorage
+    localStorage.setItem("makhachhang", makhachhangId);
+    localStorage.setItem("ten", ten);
+    localStorage.setItem("token", token);
+  };
+
+  // Hàm đăng xuất, xóa makhachhang khỏi context và localStorage
+  const logout = () => {
+    setMakhachhang(null);
+    setTen(null);
+    setIsLogin(false);
+
+    // Xóa thông tin khỏi localStorage khi đăng xuất
+    localStorage.removeItem("makhachhang");
+    localStorage.removeItem("ten");
+    localStorage.removeItem("token");
   };
 
   return (
-    <CartContext.Provider value={{ isCartVisible, setIsCartVisible, toggleCartVisibility }}>
+    <AuthContext.Provider value={{ makhachhang, ten, isLogin, login, logout }}>
       {children}
-    </CartContext.Provider>
+    </AuthContext.Provider>
   );
-}
-
-// Hook để sử dụng Context trong các component khác
-export function useCart() {
-  return useContext(CartContext);
-}
+};

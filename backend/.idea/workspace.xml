@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/banner/Banner.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/banner/Banner.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/context/context.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/context/context.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/fileLienKetHTML/ChinhSachBaoMat.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/fileLienKetHTML/ChinhSachBaoMat.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/fileLienKetHTML/ChinhSachHoanHang.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/fileLienKetHTML/ChinhSachHoanHang.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.jsx" afterDir="false" />

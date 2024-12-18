@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link
 import "./Header.css";
-import { useCart } from "../context/context";
+import { useAuth } from "../context/context";
 
 function Header() {
+  const { isLogin, logout, ten } = useAuth(); // Lấy trạng thái và hàm logout từ context
   const [cartCount, setCartCount] = useState(0);
-  const { isCartVisible, setIsCartVisible } = useCart();
 
   useEffect(() => {
-    // Cập nhật số lượng giỏ hàng khi component được mount
+    // Lấy số lượng sản phẩm từ giỏ hàng trong localStorage
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     setCartCount(cart.length);
   }, []);
@@ -16,16 +16,11 @@ function Header() {
   return (
     <div className="navbar">
       <div className="navbar-left">
-        {/* Use Link for navigation */}
         <Link to="/" className="nav-link">
           <h3>Trang Chủ</h3>
         </Link>
-        <Link
-          to="/giohang"
-          className="nav-link"
-          onClick={() => setIsCartVisible(!isCartVisible)}
-        >
-          <h3>Giỏ Hàng</h3>
+        <Link to="/giohang" className="nav-link">
+          <h3>Giỏ Hàng ({cartCount})</h3>
         </Link>
         <Link to="/LienHeAdmin" className="nav-link">
           <h3>Liên Hệ</h3>
@@ -34,14 +29,25 @@ function Header() {
           <h3>Giới Thiệu</h3>
         </Link>
       </div>
+
       <div className="navbar-right">
-        {/* External links can still use <a> */}
-        <a href="https://doubleshop.linkpc.net/endpoints/req/login">
-          <h3 className="nav-link">Đăng Nhập</h3>
-        </a>
-        <a href="https://doubleshop.linkpc.net/endpoints/req/signup">
-          <h3 className="nav-link">Đăng Ký</h3>
-        </a>
+        {isLogin ? (
+          <div className="user-info">
+            <h3 className="user-name">Xin chào, User {ten}</h3>
+            <button onClick={logout} className="auth-button">
+              Đăng Xuất
+            </button>
+          </div>
+        ) : (
+          <>
+            <Link to="/Login" className="nav-link">
+              <h3>Đăng Nhập</h3>
+            </Link>
+            <Link to="/Signup" className="nav-link">
+              <h3>Đăng Ký</h3>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

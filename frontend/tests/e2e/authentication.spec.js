@@ -7,7 +7,7 @@ describe('Login Form', () => {
         const randomEmail = faker.internet.email();
         const randomPassword = 'doai123';
 
-        cy.visit('/endpoints/req/signup');
+        cy.visit('/Signup');
         cy.get('input[name="username"]').type(randomUsername);
         cy.wait(1000);
         cy.get('input[name="email"]').type(randomEmail);

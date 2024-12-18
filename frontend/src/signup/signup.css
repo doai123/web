@@ -1,0 +1,80 @@
+/* Container chính */
+.auth-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 40px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ffffff, #f1f5f9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: #333;
+}
+
+/* Tiêu đề */
+.auth-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Input Group */
+.input-group {
+  position: relative;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+/* Input */
+.input-group input {
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  color: #333;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Focus Input */
+.input-group input:focus {
+  border-color: #6a11cb;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(106, 17, 203, 0.3);
+}
+
+/* Label */
+.input-group label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  /* background: white; */
+  padding-bottom: 20px;
+}
+
+/* Khi input có giá trị hoặc được focus */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: 3px;
+  font-size: 14px;
+  color: #6a11cb;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+  font-size: 14px;
+}
