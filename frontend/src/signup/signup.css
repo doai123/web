@@ -77,7 +77,7 @@
 /* Label */
 .input-group label {
   position: absolute;
-  left: 10px;
+  left: 5px;
   top: 30%;
   transform: translateY(-50%);
   font-size: 16px;
