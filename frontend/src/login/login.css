@@ -92,7 +92,7 @@
 /* Label */
 .input-group label {
   position: absolute;
-  left: 20px;
+  left: 10px;
   top: 50%; /* Tạm thời giữ ở giữa */
   transform: translateY(-50%);
   font-size: 16px;
