@@ -65,6 +65,8 @@ const SignupForm = () => {
   };
 
   return (
+    <div>
+    <img src="background_signup.webp" className="img_signup" alt="Background" />
     <div className="auth-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
@@ -121,6 +123,8 @@ const SignupForm = () => {
       {error && <p className="error-message">{error}</p>}
       {success && <p className="success-message">{success}</p>}
     </div>
+  </div>
+  
   );
 };
 

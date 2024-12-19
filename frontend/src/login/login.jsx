@@ -57,9 +57,11 @@ const LoginForm = () => {
     }
   };
 
-  return (
+  return (<div>
+  <img src='/background_login.webp' className='image_login_auth' ></img>
     <div className="auth-container">
-      <h2>Login</h2>
+      
+      <h2 className='h2_input-group'>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="input-group">
           <input
@@ -71,7 +73,7 @@ const LoginForm = () => {
             placeholder=" "
             required
           />
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username" className='username_au'>Username</label>
         </div>
         <div className="input-group">
           <input
@@ -83,13 +85,13 @@ const LoginForm = () => {
             placeholder=" "
             required
           />
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password" className='password_au'>Password</label>
         </div>
-        <button type="submit" className="auth-button">Login</button>
+        <button type="submit" className="auth-button" >Login</button>
       </form>
       {error && <p className="error-message">{error}</p>}
       {success && <p className="success-message">{success}</p>}
-    </div>
+    </div></div>
   );
 };
 

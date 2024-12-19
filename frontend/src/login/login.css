@@ -4,10 +4,44 @@
   margin: auto;
   padding: 40px 20px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #ffffff, #f1f5f9);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   text-align: center;
   color: #333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff; /* Màu nền cho form đăng nhập */
+  opacity: 0.9; /* Độ mờ cho phần form */
+  z-index: 10; /* Đảm bảo form hiển thị trên background */
+  padding-bottom: 4px;
+}
+
+/* Background với 7 màu */
+.image_login_auth {
+  background: linear-gradient(135deg, #FF7F50, #FF6347, #FFD700, #32CD32, #3CB371, #8A2BE2, #6A5ACD); /* Gradient 7 màu */
+  background-size: 400% 400%; /* Tạo hiệu ứng di chuyển cho gradient */
+  animation: gradientAnimation 5s ease infinite; /* Animation gradient */
+  height: 100vh; /* Chiều cao ảnh nền bằng chiều cao của màn hình */
+  width: 100vw; /* Chiều rộng ảnh nền bằng chiều rộng của màn hình */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Đặt ảnh nền phía sau form */
+  /* Đã bỏ overflow: hidden để gradient có thể di chuyển tự do */
+}
+
+/* Animation cho background gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Tiêu đề */
@@ -16,24 +50,34 @@
   margin-bottom: 20px;
   font-weight: 600;
   color: #444;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Input Group */
+/* Hiệu ứng hover cho tiêu đề */
+.auth-container h2:hover {
+  color: #5b1677; /* Tím khi hover */
+  transform: scale(1.1); /* Làm cho tiêu đề phóng to */
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Thêm bóng cho tiêu đề */
+  cursor: pointer;
+}
+
+
 .input-group {
   position: relative;
   margin-bottom: 24px;
   width: 100%;
 }
 
-/* Input */
+
 .input-group input {
   width: 100%;
   padding: 14px 12px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 2px solid #000;
   border-radius: 8px;
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #f8f8f8;
+  color: #000;
   outline: none;
   transition: all 0.3s ease;
 }
@@ -42,48 +86,123 @@
 .input-group input:focus {
   border-color: #6a11cb;
   background-color: #fff;
-  box-shadow: 0 0 6px rgba(106, 17, 203, 0.3);
+  box-shadow: 0 0 8px rgba(106, 17, 203, 0.3);
 }
 
 /* Label */
 .input-group label {
   position: absolute;
-  left: 12px;
-  top: 50%;
+  left: 20px;
+  top: 50%; /* Tạm thời giữ ở giữa */
   transform: translateY(-50%);
   font-size: 16px;
-  color: #999;
+  color: #555;
   pointer-events: none;
   transition: all 0.3s ease;
   background: transparent;
-  padding-bottom: 20px;
+}
+.password_au{
+  color:#1f64e6
+}
+.password_au{
+  color: #1f64e6;
+}
+
+
+
+
+
+
+
+
+.input-group label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #000; /* Màu chữ mặc định là đen */
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: transparent;
+  bottom: 2px; /* Khoảng cách 2px từ viền dưới của input */
 }
 
 /* Khi input có giá trị hoặc được focus */
 .input-group input:focus + label,
 .input-group input:not(:placeholder-shown) + label {
-  top: 3px;
+  top: -18px; /* Nâng label lên khi focus hoặc có giá trị */
+  font-size: 20px;
+  color: #831f92;  /* Màu tím khi có input */
+  animation: colorChange 2s infinite; /* Hiệu ứng đổi màu liên tục */
+}
+
+/* Animation để thay đổi màu chữ liên tục */
+@keyframes colorChange {
+  0% {
+    
+    color: #FF7F50;
+  }
+  25% {
+    color: #FF6347;
+  }
+  50% {
+    color: #FFD700;
+  }
+  75% {
+    color: #32CD32;
+  }
+  100% {
+    color: #6A5ACD;
+  }
+}
+
+/* Đảm bảo label vẫn giữ vị trí trong input khi không nhập chữ */
+.input-group input:not(:focus):not(:placeholder-shown) + label {
+  color: #000; /* Màu chữ đen khi không có input */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Khi input có giá trị hoặc được focus */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+  top: -18px; /* Nâng label lên cao hơn khi focus hoặc có giá trị */
   font-size: 14px;
-  color: #6a11cb;
+  color: #831f92;  /* Màu tím */
 }
 
 /* Nút Submit */
 .auth-button {
   width: 100%;
   padding: 12px 16px;
-  font-size: 16px;
+  font-size: 18px;
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
-  border: none;
-  border-radius: 6px;
+  border: 2px solid #000;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+/* Hover cho nút Submit */
 .auth-button:hover {
   background: linear-gradient(135deg, #5c0eb2, #1f64e6);
 }
+
+/* Hiệu ứng lỗi và thành công */
 .error-message {
   color: red;
   margin-top: 10px;
@@ -94,4 +213,9 @@
   color: green;
   margin-top: 10px;
   font-size: 14px;
+}
+
+/* Hiệu ứng khi rê chuột */
+.auth-container:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
