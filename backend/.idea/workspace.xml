@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/security/JwtAuthenticationFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/security/SecurityConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backend/sercurity/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/sercurity/JwtAuthenticationFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/backend/NghiemtucApplication.class" beforeDir="false" />
@@ -39,6 +41,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/signup.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/login/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/login/login.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/signup/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/signup/signup.css" afterDir="false" />
@@ -172,7 +175,7 @@
       <workItem from="1734420866293" duration="12084000" />
       <workItem from="1734492401656" duration="1226000" />
       <workItem from="1734493797355" duration="1449000" />
-      <workItem from="1734694950697" duration="5644000" />
+      <workItem from="1734694950697" duration="6105000" />
     </task>
     <servers />
   </component>
