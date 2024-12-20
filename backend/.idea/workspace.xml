@@ -5,47 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/security/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/security/SecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/sercurity/JwtAuthenticationFilter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/sercurity/SercurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/NghiemtucApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/constant/Constant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/controller/HangController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/controller/KhachHangController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/controller/SanPhamController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/cors/WebConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/domain/Hang.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/domain/KhachHang.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/domain/SanPham.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/repository/HangRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/repository/KhachHangRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/repository/SanPhamRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/sercurity/JwtAuthenticationFilter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/sercurity/SecurityConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/service/AuthenticationServices.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/service/HangService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/service/KhachHangService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/service/SanPhamService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/backend/util/Jwt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ditcuchungmay.linkpc.net.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/doubleshop.linkpc.net.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/error/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/css/style2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/signup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/signup.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/login/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/login/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/signup/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/signup/signup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,9 +43,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Spring Boot.NghiemtucApplication (1).executor": "Run",
     "Spring Boot.NghiemtucApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "production",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/DEPLOY WEB/backend",
+    "last_opened_file_path": "C:/data/backend",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -177,6 +137,7 @@
       <workItem from="1734492401656" duration="1226000" />
       <workItem from="1734493797355" duration="1449000" />
       <workItem from="1734694950697" duration="7809000" />
+      <workItem from="1734711137910" duration="51000" />
     </task>
     <servers />
   </component>
