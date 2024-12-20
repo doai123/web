@@ -180,7 +180,7 @@
                     .orElseGet(() -> ResponseEntity.notFound().build());
         }
 
-        @PostMapping("/reset-password")
+        @PostMapping(value = "/reset-password", consumes = "application/json")
         public ResponseEntity<String> reset(@RequestBody RequestUsername userName) {
             try {
                 boolean check = sendMail.sendMail(RandomPassword.generateRandomPassword(), userName.getUserName());

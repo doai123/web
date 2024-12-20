@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/cors/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/cors/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +145,7 @@
       <workItem from="1734493797355" duration="1449000" />
       <workItem from="1734694950697" duration="7809000" />
       <workItem from="1734711137910" duration="3348000" />
-      <workItem from="1734715218677" duration="372000" />
+      <workItem from="1734715218677" duration="623000" />
     </task>
     <servers />
   </component>
