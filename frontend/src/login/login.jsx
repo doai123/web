@@ -87,6 +87,12 @@ const LoginForm = () => {
           />
           <label htmlFor="password" className='password_au'>Password</label>
         </div>
+        <button
+        className="switch-mode"
+        onClick={() => navigate('/reset-password')}  // Chuyển hướng tới trang reset password
+      >
+        Forgot Password?
+      </button>
         <button type="submit" className="auth-button" >Login</button>
       </form>
       {error && <p className="error-message">{error}</p>}

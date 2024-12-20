@@ -20,6 +20,7 @@ import GioHang from './slideSanPham/GioHang.jsx';
 import LoginForm from './login/login.jsx';
 import SignupForm from './signup/signup.jsx';
 import { AuthProvider } from "./context/context";
+import ResetPassword from './ResetPassword/ResetPassword.jsx';
 // Chỉ cần bao bọc toàn bộ ứng dụng trong Router
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -42,6 +43,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/giohang" element={<GioHang />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </Router>
     </AuthProvider>

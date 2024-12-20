@@ -3,6 +3,8 @@
     import backend.domain.KhachHang;
     import backend.repository.KhachHangRepository;
     import backend.service.AuthenticationServices;
+    import backend.service.RandomPassword;
+    import backend.service.SendMail;
     import backend.util.Jwt;
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.http.HttpStatus;
@@ -11,6 +13,7 @@
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
     import org.springframework.web.bind.annotation.*;
+    import org.springframework.web.servlet.function.RequestPredicate;
 
     import java.util.HashMap;
     import java.util.List;
@@ -19,6 +22,8 @@
 
     @Controller
     public class KhachHangController {
+        @Autowired
+        private SendMail sendMail;
         @Autowired
         private Jwt jwt;
         @Autowired
@@ -170,5 +175,13 @@
             return khachHangRepository.findById(id)
                     .map(customer -> ResponseEntity.ok(customer))
                     .orElseGet(() -> ResponseEntity.notFound().build());
+        }
+        @PostMapping("/reset-password")
+        public ResponseEntity<String> reset(@RequestBody String userName) {
+             boolean check =   sendMail.sendMail(RandomPassword.generateRandomPassword(),userName);
+               if(check){
+                   return ResponseEntity.ok("successful");
+               }
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("fails");
         }
     }
