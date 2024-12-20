@@ -19,5 +19,4 @@ html, body {
   height: auto;     /* Chiều cao tự động điều chỉnh theo tỉ lệ ảnh */
   object-fit: cover; /* Đảm bảo ảnh không bị kéo dãn, lấp đầy vùng chứa */
   display: block;    /* Loại bỏ khoảng trắng thừa dưới ảnh */
-  margin-top: 50px;
 }

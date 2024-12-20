@@ -21,7 +21,7 @@
 
 /* Bổ sung padding-top cho phần tử tiếp theo tránh bị navbar che khuất */
 body {
-    padding-top: 60px; /* Điều chỉnh theo chiều cao của navbar */
+    padding-top: 60px; 
 }
 
 .navbar-left,
