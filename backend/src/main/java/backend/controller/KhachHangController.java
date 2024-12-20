@@ -10,6 +10,7 @@
     import org.springframework.beans.factory.annotation.Autowired;
     import org.springframework.http.HttpStatus;
     import org.springframework.http.ResponseEntity;
+    import org.springframework.security.access.AccessDeniedException;
     import org.springframework.security.crypto.password.PasswordEncoder;
     import org.springframework.stereotype.Controller;
     import org.springframework.ui.Model;
@@ -187,10 +188,14 @@
                 if (check) {
                     return ResponseEntity.ok("successful");
                 }
+            } catch (AccessDeniedException e) {
+                // Nếu gặp lỗi 403, trả về thông báo lỗi chi tiết
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Access Denied: " + e.getMessage());
             } catch (Exception e) {
-
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+                // Xử lý các lỗi khác
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: " + e.getMessage());
             }
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("fails");
         }
+
     }
