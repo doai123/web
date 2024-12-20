@@ -33,6 +33,7 @@
         private PasswordEncoder passwordEncoder;
         @Autowired
         private KhachHangRepository khachHangRepository;
+
         @GetMapping("/req/login")
         public String login() {
             return "login";
@@ -55,7 +56,7 @@
             Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
 
             if (username.isEmpty() || password.isEmpty()) {
-                response.put("error","Username and password are required");
+                response.put("error", "Username and password are required");
                 return ResponseEntity.badRequest().body(response); // Trả về lỗi 400 nếu thiếu thông tin
             }
 
@@ -66,8 +67,8 @@
                     // Tạo token JWT sau khi đăng nhập thành công
                     String token = jwt.generateToken(username, "userRole"); // Cập nhật theo cách lấy role của người dùng
                     response.put("token", token); // Gửi token về cho frontend
-                    response.put("makhachhang",login);
-                    response.put("ten",khachHang.get().getTen());
+                    response.put("makhachhang", login);
+                    response.put("ten", khachHang.get().getTen());
                     return ResponseEntity.ok(response); // Trả về mã 200 với token
                 } catch (Exception e) {
                     response.put("error", "Error generating JWT token: " + e.getMessage());
@@ -133,6 +134,7 @@
                 return ResponseEntity.ok(response);
             }
         }
+
         @PostMapping("/admin-login")
         public ResponseEntity<?> generateAdminToken(@RequestParam String username) {
             try {
@@ -177,12 +179,18 @@
                     .map(customer -> ResponseEntity.ok(customer))
                     .orElseGet(() -> ResponseEntity.notFound().build());
         }
+
         @PostMapping("/reset-password")
         public ResponseEntity<String> reset(@RequestBody RequestUsername userName) {
-             boolean check =   sendMail.sendMail(RandomPassword.generateRandomPassword(), userName.getUserName());
-               if(check){
-                   return ResponseEntity.ok("successful");
-               }
+            try {
+                boolean check = sendMail.sendMail(RandomPassword.generateRandomPassword(), userName.getUserName());
+                if (check) {
+                    return ResponseEntity.ok("successful");
+                }
+            } catch (Exception e) {
+
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            }
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("fails");
         }
     }
