@@ -1,6 +1,7 @@
     package backend.controller;
 
     import backend.domain.KhachHang;
+    import backend.domain.RequestUsername;
     import backend.repository.KhachHangRepository;
     import backend.service.AuthenticationServices;
     import backend.service.RandomPassword;
@@ -177,8 +178,8 @@
                     .orElseGet(() -> ResponseEntity.notFound().build());
         }
         @PostMapping("/reset-password")
-        public ResponseEntity<String> reset(@RequestBody String userName) {
-             boolean check =   sendMail.sendMail(RandomPassword.generateRandomPassword(),userName);
+        public ResponseEntity<String> reset(@RequestBody RequestUsername userName) {
+             boolean check =   sendMail.sendMail(RandomPassword.generateRandomPassword(), userName.getUserName());
                if(check){
                    return ResponseEntity.ok("successful");
                }
