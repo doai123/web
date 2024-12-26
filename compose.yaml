@@ -28,9 +28,9 @@ services:
     networks:
       - my-network
 
-  springboot-backend:
+  springboot:
     image: 'doai123/springboot'# Docker image của ứng dụng Spring Boot
-    container_name: 'spring-container'
+    container_name: 'springboot'
     environment:
       - 'TZ=Asia/Ho_Chi_Minh'
       - 'SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/btl_web'  
@@ -39,7 +39,8 @@ services:
     ports:
       - '8080:8080' 
     depends_on:
-      - mysql 
+      mysql:
+        condition: service_healthy
     volumes:
       - /home/data/backend:/backend  
       - /home/data/pictures:/backend/pictures
