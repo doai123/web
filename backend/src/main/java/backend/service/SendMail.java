@@ -6,6 +6,7 @@ import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
@@ -15,6 +16,8 @@ import java.util.Properties;
 public class SendMail {
     @Autowired
     private KhachHangRepository khachHangRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     public  boolean sendMail(String newPassword,String userName)
 
     {
@@ -47,7 +50,10 @@ public class SendMail {
                 message.setSubject("DOUBLE SHOP - request Password");
                 message.setText("Dear Mail Crawler, \n\n No spam to my email, please! "+"Password="+newPassword);
                 Transport.send(message);
-                khachHang.get().setMatKhau(newPassword);
+                String encodedPassword = passwordEncoder.encode(newPassword);
+                khachHang.get().setMatKhau(encodedPassword);
+                khachHangRepository.save(khachHang.get());
+
                 System.out.println("Sent message successfully....");
                 return true;
             }else {
