@@ -47,7 +47,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             KhachHang khachHang = (KhachHang) khachHangServices.loadUserByUsername(username);
-            if (jwt.validateToken(jwtString, khachHang.getUsername(),khachHang.getRoles())) {
+            if (jwt.validateToken(jwtString, username,role)) {
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         khachHang, null, khachHang.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authToken);
