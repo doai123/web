@@ -195,9 +195,10 @@
         @PostMapping(value = "/reset-password", consumes = "application/json")
         public ResponseEntity<String> reset(@RequestBody RequestUsername userName) {
             try {
-                boolean check = sendMail.sendMail(RandomPassword.generateRandomPassword(), userName.getUserName());
-                if (check) {
-                    return ResponseEntity.ok("successful");
+                Map<String,Object> data = sendMail.sendMail(RandomPassword.generateRandomPassword(), userName.getUserName());
+                String value = (String) data.get("gmail");
+                if (data.get("check").equals(true)) {
+                    return ResponseEntity.ok(value);
                 }
             } catch (AccessDeniedException e) {
                 // Nếu gặp lỗi 403, trả về thông báo lỗi chi tiết

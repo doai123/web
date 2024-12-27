@@ -10,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Properties;
 @Service
@@ -18,7 +20,7 @@ public class SendMail {
     private KhachHangRepository khachHangRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
-    public  boolean sendMail(String newPassword,String userName)
+    public Map<String,Object> sendMail(String newPassword, String userName)
 
     {
 //        String RandomPassword = randomPassword.generateRandomPassword();
@@ -26,6 +28,7 @@ public class SendMail {
         final String email = "bapheo1999@gmail.com";
         final String password = "ibkd efxz snpl yuuv";
         Optional<KhachHang> khachHang = khachHangRepository.findByUsername(userName);
+        Map<String,Object> data = new HashMap<>();
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -55,17 +58,22 @@ public class SendMail {
                 khachHangRepository.saveAndFlush(khachHang.get());
 
                 System.out.println("Sent message successfully....");
-                return true;
+                data.put("check",true);
+                data.put("gmail",gmail);
+                return data;
             }else {
-                return false;
+                data.put("check",false);
+                return data;
             }
         } catch (MessagingException e) {
             System.out.println(e);
-            return false;
+            data.put("check",false);
+            return data;
         } catch (UnsupportedEncodingException e) {
             System.out.println(e);
 //            throw new RuntimeException(e);
-            return false;
+            data.put("check",false);
+            return data;
         }
     }
 }
