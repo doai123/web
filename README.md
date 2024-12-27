@@ -97,7 +97,7 @@ Sinh viên viết báo cáo kết quả trực tiếp vào phần này để tr�
                        - Kiểm thử tự động: dùng jest và cypress để kiểm thử 
                        - CI/CD: Git action file deploy.yml dùng để deploy ứng dụng tự động nhanh chóng, File testing.yml để test ứng dụng                  
 
-4. **Video demo (nếu có)**:[![Introduction Video](https://www.dropbox.com/scl/fi/j22zhxzyy01p3stuai7eh/gioithieuweb.mp4?rlkey=oxt78rfsfwjysqfojqoxfkqay&st=84k0p0es&dl=0)]
+4. **Video demo (nếu có)**: https://www.dropbox.com/scl/fi/j22zhxzyy01p3stuai7eh/gioithieuweb.mp4?rlkey=oxt78rfsfwjysqfojqoxfkqay&st=84k0p0es&dl=0
 
 5. **Tự đánh giá điểm**: Sinh viên tự đánh giá điểm của mình theo tiêu chí đánh giá đã đề ra. Ghi rõ điểm tự đánh giá và lý do.
 
