@@ -21,6 +21,8 @@ import LoginForm from './login/login.jsx';
 import SignupForm from './signup/signup.jsx';
 import { AuthProvider } from "./context/context";
 import ResetPassword from './ResetPassword/ResetPassword.jsx';
+import Information from './UserProFile/Information.jsx';
+import ChangePassword from './ChangePassword/ChangePassword.jsx';
 // Chỉ cần bao bọc toàn bộ ứng dụng trong Router
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -44,6 +46,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/giohang" element={<GioHang />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path= "/Information" element={<Information />} />
+        <Route path= "/ChangePassword" element={<ChangePassword />} />
       </Routes>
     </Router>
     </AuthProvider>

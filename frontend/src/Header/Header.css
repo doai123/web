@@ -16,7 +16,7 @@
     z-index: 1000; 
     transition: padding 0.3s ease;
     /* Thêm padding-top cho phần tử tiếp theo tránh bị che khuất */
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
 }
 
 /* Bổ sung padding-top cho phần tử tiếp theo tránh bị navbar che khuất */

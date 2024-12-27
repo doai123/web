@@ -1,6 +1,8 @@
     package backend.controller;
 
     import backend.domain.KhachHang;
+    import backend.domain.RequestKhachHang;
+    import backend.domain.RequestPassword;
     import backend.domain.RequestUsername;
     import backend.repository.KhachHangRepository;
     import backend.service.AuthenticationServices;
@@ -205,6 +207,38 @@
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error: " + e.getMessage());
             }
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("fails");
+        }
+        @PutMapping(value = "/updateKhachHang",consumes = "application/json")
+        public ResponseEntity<String> update(@RequestBody RequestKhachHang requestKhachHang){
+            Optional<KhachHang> khachHang = khachHangRepository.findById(requestKhachHang.getId());
+            if(khachHang.isPresent()){
+                khachHang.get().setTen(requestKhachHang.getTen());
+                khachHang.get().setTen(requestKhachHang.getEmail());
+                khachHang.get().setTen(requestKhachHang.getSoDienThoai());
+                khachHang.get().setTen(requestKhachHang.getDiaChiGiaoHang());
+                khachHangRepository.saveAndFlush(khachHang.get());
+                return ResponseEntity.ok("successful");
+            }else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("not found.");
+            }
+        }
+        @PutMapping(value = "/changePassword",consumes = "application/json")
+        public ResponseEntity<String> update(@RequestBody  RequestPassword requestPassword){
+            Optional<KhachHang> khachHang = khachHangRepository.findById(requestPassword.getId());
+            if(khachHang.isPresent()){
+                boolean check = passwordEncoder.matches(requestPassword.getOldPassword(),khachHang.get().getPassword());
+                if(check) {
+                    String NewPassword = passwordEncoder.encode(requestPassword.getNewPassword());
+                    khachHang.get().setMatKhau(NewPassword);
+                    khachHangRepository.saveAndFlush(khachHang.get());
+                    return ResponseEntity.ok("successful");
+                }else {
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("The old password is incorrect");
+                }
+
+            }else {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body("not found.");
+            }
         }
 
     }

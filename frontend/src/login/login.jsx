@@ -57,12 +57,11 @@ const LoginForm = () => {
         if (response.ok) {
           // Xử lý đăng nhập thành công
           setSuccess('Login successful!');
-          const { makhachhang, token, ten } = result;
-          const isLogin = true;
+          const { khachhang, token } = result;
   
           // Lưu makhachhang và token vào context
-          login(makhachhang, token, ten, isLogin);
-          console.log(isLogin,ten);
+          login(khachhang,token);
+
   
           // Chuyển hướng ngay lập tức sau khi đăng nhập thành công
           navigate('/');  // Chuyển hướng đến trang chủ hoặc bất kỳ trang nào bạn muốn

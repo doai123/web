@@ -24,9 +24,8 @@ const UserProfile = ({ userName, onLogout }) => {
         {/* Dropdown menu */}
         {isDropdownOpen && (
           <div className="dropdown-menu">
-            <Link to="/user-info" className="dropdown-item">Thông Tin</Link>
-            <Link to="/user-balance" className="dropdown-item">Số Tiền</Link>
-            <Link to="/update-info" className="dropdown-item">Cập Nhật Thông Tin</Link>
+            <Link to="/Information" className="dropdown-item">Thông Tin</Link>
+            <Link to="/ChangePassword" className="dropdown-item">Đổi Mật Khẩu</Link>
           </div>
         )}
       </div>

@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/SendMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/SendMail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/UserProFile/UserProFile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/UserProFile/UserProFile.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/context/context.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/context/context.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/login/login.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../frontend/src/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/login/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/signup/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/signup/signup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/signup/signup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/signup/signup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +159,8 @@
       <workItem from="1735270984416" duration="1814000" />
       <workItem from="1735273147676" duration="1600000" />
       <workItem from="1735286094446" duration="460000" />
+      <workItem from="1735290829447" duration="2243000" />
+      <workItem from="1735296662304" duration="3037000" />
     </task>
     <servers />
   </component>

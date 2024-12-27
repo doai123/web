@@ -5,7 +5,7 @@ import { useAuth } from "../context/context";
 import UserProfile from "../UserProFile/UserProFile";
 
 function Header() {
-  const { isLogin, logout, ten } = useAuth(); // Lấy trạng thái và hàm logout từ context
+  const { isLogin, logout, khachhang } = useAuth(); // Lấy trạng thái và hàm logout từ context
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function Header() {
 
       <div className="navbar-right">
         {isLogin ? (
-          <UserProfile userName={ten} onLogout={logout} />
+          <UserProfile userName={khachhang.ten} onLogout={logout} />
         ) : (
           <>
             <Link to="/Login" className="nav-link">

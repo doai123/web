@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 // Tạo context
 const AuthContext = createContext();
@@ -10,50 +11,47 @@ export const useAuth = () => {
 
 // Provider chứa trạng thái makhachhang
 export const AuthProvider = ({ children }) => {
-  const [makhachhang, setMakhachhang] = useState(null);
-  const [ten, setTen] = useState(null);
+  const [khachhang, setKhachhang] = useState(null); // Thông tin chi tiết khách hàng
+  const [token, setToken] = useState(null);
   const [isLogin, setIsLogin] = useState(false);
 
-  // Khôi phục trạng thái từ localStorage khi trang được tải lại
+  // Khôi phục trạng thái từ sessionStorage khi trang được tải lại
   useEffect(() => {
-    const storedMakhachhang = localStorage.getItem("makhachhang");
-    const storedTen = localStorage.getItem("ten");
-    const storedToken = localStorage.getItem("token");
-    
-    if (storedMakhachhang && storedTen && storedToken) {
-      setMakhachhang(storedMakhachhang);
-      setTen(storedTen);
+    const storedKhachhang = sessionStorage.getItem("khachhang");
+    const storedToken = sessionStorage.getItem("token");
+
+    if (storedKhachhang && storedToken) {
+      setKhachhang(JSON.parse(storedKhachhang)); // Giải mã thông tin khách hàng
+      setToken(storedToken);
       setIsLogin(true);
     }
-  }, []);
+  }, []); // Chỉ chạy khi trang được tải lại
 
-  // Hàm đăng nhập, lưu makhachhang vào context và localStorage
-  const login = (makhachhangId, token, ten, islogin) => {
-    setMakhachhang(makhachhangId);
-    setTen(ten);
-    setIsLogin(islogin);
-    console.log(ten, islogin);
+  // Hàm đăng nhập, lưu makhachhang và thông tin khách hàng vào context và sessionStorage
+  const login = async (khachhang, token) => {
+    // Lưu thông tin khách hàng và token vào state và sessionStorage
+    setKhachhang(khachhang);
+    setToken(token);
+    setIsLogin(true);
 
-    // Lưu thông tin vào localStorage
-    localStorage.setItem("makhachhang", makhachhangId);
-    localStorage.setItem("ten", ten);
-    localStorage.setItem("token", token);
+    // Lưu thông tin vào sessionStorage
+    sessionStorage.setItem("khachhang", JSON.stringify(khachhang)); // Lưu toàn bộ thông tin khách hàng
+    sessionStorage.setItem("token", token);
   };
-
-  // Hàm đăng xuất, xóa makhachhang khỏi context và localStorage
+  
+  // Hàm đăng xuất, xóa makhachhang và thông tin khách hàng khỏi context và sessionStorage
   const logout = () => {
-    setMakhachhang(null);
-    setTen(null);
+    setKhachhang(null);
+    setToken(null);
     setIsLogin(false);
 
-    // Xóa thông tin khỏi localStorage khi đăng xuất
-    localStorage.removeItem("makhachhang");
-    localStorage.removeItem("ten");
-    localStorage.removeItem("token");
+    // Xóa thông tin khỏi sessionStorage khi đăng xuất
+    sessionStorage.removeItem("khachhang");
+    sessionStorage.removeItem("token");
   };
 
   return (
-    <AuthContext.Provider value={{ makhachhang, ten, isLogin, login, logout }}>
+    <AuthContext.Provider value={{ setKhachhang, khachhang, token, isLogin, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
