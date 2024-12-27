@@ -48,7 +48,12 @@ jobs:
 
               if [[ "$COMMIT_MESSAGE" == *"restart-spring"* ]]; then
                 echo "Restarting Spring container..."
-                docker restart spring-container
+                docker restart springboot
+              fi
+                  if [[ "$COMMIT_MESSAGE" == *"spring-export"* ]]; then
+                echo "Restarting Spring container..."
+                docker restart springboot
+                docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
               fi
                 if [[ "$COMMIT_MESSAGE" == *"export"* ]]; then
                 echo "export..........."
