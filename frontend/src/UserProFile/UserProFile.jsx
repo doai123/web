@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { RiUserFill } from 'react-icons/ri'; // Biểu tượng người dùng từ React Icons
 import { RiLogoutBoxLine } from 'react-icons/ri'; // Biểu tượng logout từ React Icons
 import { Link } from 'react-router-dom'; // Import Link từ React Router
-import './UserProfile.css'; // Thêm CSS cho giao diện
+import './userProfile.css'; // Thêm CSS cho giao diện
 
 const UserProfile = ({ userName, onLogout }) => {
   // State để điều khiển dropdown menu
