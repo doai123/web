@@ -29,7 +29,8 @@ describe('Login Form', () => {
 
         // Kiểm tra sau khi đăng nhập có chuyển đến trang chủ không
         cy.contains('Trang Chủ').wait(3000);
-        cy.contains('Đăng Xuất').wait(3000);
+        cy.get('.logout-btn').wait(3000);
+
 
     });
 });
