@@ -98,6 +98,7 @@ Sinh viên viết báo cáo kết quả trực tiếp vào phần này để tr�
                        - CI/CD: Git action file deploy.yml dùng để deploy ứng dụng tự động nhanh chóng, File testing.yml để test ứng dụng                  
 
 4. **Video demo (nếu có)**:[![Introduction Video](video/gioithieuweb.mp4)]
+                     -đường dẫn video :video/gioithieuweb.mp4
 
 5. **Tự đánh giá điểm**: Sinh viên tự đánh giá điểm của mình theo tiêu chí đánh giá đã đề ra. Ghi rõ điểm tự đánh giá và lý do.
 
