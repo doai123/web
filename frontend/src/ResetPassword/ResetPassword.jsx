@@ -22,9 +22,12 @@ const ResetPassword = () => {
         body: JSON.stringify({ userName: userName}),
       });
 
-      const result = await response.json();
+      const result = await response.text();
       if (response.ok) {
-        setSuccess('Password reset link has been sent to your email.');
+        setSuccess(`Password reset  sent to your email.${result}`);
+        setTimeout(() => {
+          window.location.href = '/Login';
+        }, 1000);
       } else {
         setError(result.error || 'Reset failed. Please try again.');
       }

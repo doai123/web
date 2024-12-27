@@ -59,13 +59,17 @@ const Information = () => {
       if (response.ok) {
         // Nếu yêu cầu thành công, lấy phản hồi dưới dạng chuỗi
         const result = await response.text();  // Lấy nội dung trả về dưới dạng chuỗi
-  
+        
         if (result === 'successful') {
+
           // Nếu trả về "successful", cập nhật lại thông tin
           setKhachhang(formData);  // formData chứa thông tin đã cập nhật
           sessionStorage.setItem('khachhang', JSON.stringify(formData));
           setIsEditing(false);
           setEditingField(null); // Reset trường đang chỉnh sửa
+          setTimeout(() => {
+            window.location.href = '/';  // Chuyển hướng về trang login
+          }, 3000);
         } else {
           console.error('Update failed:', result);
         }

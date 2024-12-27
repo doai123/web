@@ -8,7 +8,7 @@ const ChangePassword = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { khachhang, token } = useAuth();
+  const { khachhang, token,logout} = useAuth();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -47,6 +47,10 @@ const ChangePassword = () => {
       if (response.ok) {
         // Xử lý thành công
         alert('Mật khẩu đã được thay đổi thành công!');
+        setTimeout(() => {
+          logout();
+          window.location.href = '/Login';  // Chuyển hướng về trang login
+        }, 1000);
       } else {
         // Xử lý lỗi nếu yêu cầu không thành công
         const result = await response.json();
