@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/domain/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/domain/KhachHang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/repository/KhachHangRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/repository/KhachHangRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/AuthenticationServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/AuthenticationServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/KhachHangServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/KhachHangServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/UserProFile/Information.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/UserProFile/Information.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/backend/service/SendMail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/service/SendMail.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +157,7 @@
       <workItem from="1735300840007" duration="27000" />
       <workItem from="1735301082216" duration="1439000" />
       <workItem from="1735305416864" duration="372000" />
+      <workItem from="1735306523203" duration="52000" />
     </task>
     <servers />
   </component>

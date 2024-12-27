@@ -25,7 +25,7 @@ public class SendMail {
         final String username = "DOUBLE SHOP";
         final String email = "bapheo1999@gmail.com";
         final String password = "ibkd efxz snpl yuuv";
-        Optional<KhachHang> khachHang = khachHangRepository.findByTen(userName);
+        Optional<KhachHang> khachHang = khachHangRepository.findByUsername(userName);
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
