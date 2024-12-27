@@ -12,7 +12,6 @@ const UserProfile = ({ userName, onLogout }) => {
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-
   return (
     <div className="user-profile">
       {/* Cặp avatar và tên người dùng xếp theo chiều dọc */}
