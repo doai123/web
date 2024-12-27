@@ -17,8 +17,7 @@ const Information = () => {
 
   useEffect(() => {
     if (khachhang) {
-      setFormData({
-        id: khachhang.maKhachHang,  // Thêm id vào formData
+      setFormData({ // Thêm id vào formData
         ten: khachhang.ten,
         email: khachhang.email,
         soDienThoai: khachhang.soDienThoai,
@@ -40,13 +39,21 @@ const Information = () => {
   const handleSave = async () => {
     try {
       console.log(token,khachhang.maKhachHang)
+      const data = {
+        id: khachhang.maKhachHang,
+        ten: formData.ten,
+        email: formData.email,
+        soDienThoai: formData.soDienThoai,
+        diaChiGiaoHang: formData.diaChiGiaoHang,
+      }
+      console.log(formData.ten,formData.email,formData.soDienThoai,formData.diaChiGiaoHang)
       const response = await fetch('https://doubleshop.linkpc.net/endpoints/updateKhachHang', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       });
   
       if (response.ok) {

@@ -17,7 +17,7 @@ public class KhachHangServices implements org.springframework.security.core.user
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<KhachHang> khachHangOptional = khachHangRepository.findByTen(username); // Tìm khách hàng theo tên (username)
+        Optional<KhachHang> khachHangOptional = khachHangRepository.findByUsername(username); // Tìm khách hàng theo tên (username)
 
         // Kiểm tra nếu không tìm thấy khách hàng
         KhachHang khachHang = khachHangOptional.orElseThrow(() -> new UsernameNotFoundException("User not found"));

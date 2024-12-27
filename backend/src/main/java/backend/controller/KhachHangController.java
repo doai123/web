@@ -64,7 +64,7 @@
             }
 
             // Tìm kiếm người dùng trong cơ sở dữ liệu
-            Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
+            Optional<KhachHang> khachHang = khachHangRepository.findByUsername(username);
 
             // Nếu không tìm thấy người dùng
             if (!khachHang.isPresent()) {
@@ -151,7 +151,7 @@
         public ResponseEntity<?> generateAdminToken(@RequestParam String username) {
             try {
                 // Kiểm tra người dùng trong cơ sở dữ liệu
-                Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
+                Optional<KhachHang> khachHang = khachHangRepository.findByUsername(username);
 
                 if (khachHang.isPresent()) {
                     String role = khachHang.get().getRoles();
@@ -213,9 +213,9 @@
             Optional<KhachHang> khachHang = khachHangRepository.findById(requestKhachHang.getId());
             if(khachHang.isPresent()){
                 khachHang.get().setTen(requestKhachHang.getTen());
-                khachHang.get().setTen(requestKhachHang.getEmail());
-                khachHang.get().setTen(requestKhachHang.getSoDienThoai());
-                khachHang.get().setTen(requestKhachHang.getDiaChiGiaoHang());
+                khachHang.get().setEmail(requestKhachHang.getEmail());
+                khachHang.get().setSoDienThoai(requestKhachHang.getSoDienThoai());
+                khachHang.get().setDiaChiGiaoHang(requestKhachHang.getDiaChiGiaoHang());
                 khachHangRepository.saveAndFlush(khachHang.get());
                 return ResponseEntity.ok("successful");
             }else {

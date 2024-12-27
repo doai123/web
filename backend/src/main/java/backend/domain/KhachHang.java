@@ -23,6 +23,7 @@ public class KhachHang implements UserDetails {
     private String roles = "ROLE_USER";
     private String ten;
     private String email;
+    private String username;
     private String matKhau;
     private String soDienThoai;
     private String diaChiGiaoHang;

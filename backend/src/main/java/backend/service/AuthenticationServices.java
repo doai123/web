@@ -17,7 +17,7 @@ public class AuthenticationServices {
     private PasswordEncoder passwordEncoder;
 
     public Long login(String username,String password) throws UsernameNotFoundException {
-        Optional<KhachHang> user = khachHangRepository.findByTen(username);
+        Optional<KhachHang> user = khachHangRepository.findByUsername(username);
         if(user.isPresent()) {
             boolean isPasswordMatch = passwordEncoder.matches(password, user.get().getMatKhau());
             if(isPasswordMatch){
@@ -31,7 +31,7 @@ public class AuthenticationServices {
         }
     }
     public boolean signup(String username) throws UsernameNotFoundException {
-        Optional<KhachHang> user = khachHangRepository.findByTen(username);
+        Optional<KhachHang> user = khachHangRepository.findByUsername(username);
         if(user.isPresent()) {
             return true;
         }else {
