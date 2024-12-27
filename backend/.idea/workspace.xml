@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00ebb444-3488-4cbb-aa72-7f8c2940cf50" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/backend/controller/KhachHangController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/Header/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/UserProFile/UserProFile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/UserProFile/UserProFile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/context/context.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/context/context.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/login/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/login/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/login/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ChangePassword/ChangePassword.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ChangePassword/ChangePassword.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +154,8 @@
       <workItem from="1735286094446" duration="460000" />
       <workItem from="1735290829447" duration="2243000" />
       <workItem from="1735296662304" duration="3037000" />
+      <workItem from="1735300840007" duration="27000" />
+      <workItem from="1735301082216" duration="1439000" />
     </task>
     <servers />
   </component>

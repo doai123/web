@@ -18,7 +18,7 @@ const Information = () => {
   useEffect(() => {
     if (khachhang) {
       setFormData({
-        id: khachhang.id,  // Thêm id vào formData
+        id: khachhang.maKhachHang,  // Thêm id vào formData
         ten: khachhang.ten,
         email: khachhang.email,
         soDienThoai: khachhang.soDienThoai,
@@ -39,34 +39,37 @@ const Information = () => {
   // Hàm xử lý lưu thông tin sau khi người dùng cập nhật
   const handleSave = async () => {
     try {
-      // Gửi PUT request để cập nhật thông tin người dùng
+      console.log(token,khachhang.maKhachHang)
       const response = await fetch('https://doubleshop.linkpc.net/endpoints/updateKhachHang', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify(formData), // Chuyển đổi formData thành chuỗi JSON
+        body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
-        // Nếu yêu cầu thành công, cập nhật lại thông tin trong context và sessionStorage
-        const updatedKhachHang = await response.json(); // Giả sử server trả về thông tin đã cập nhật
-
-        setKhachhang(updatedKhachHang);
-        sessionStorage.setItem('khachhang', JSON.stringify(updatedKhachHang));
-
-        setIsEditing(false);
-        setEditingField(null); // Reset trường đang chỉnh sửa
+        // Nếu yêu cầu thành công, lấy phản hồi dưới dạng chuỗi
+        const result = await response.text();  // Lấy nội dung trả về dưới dạng chuỗi
+  
+        if (result === 'successful') {
+          // Nếu trả về "successful", cập nhật lại thông tin
+          setKhachhang(formData);  // formData chứa thông tin đã cập nhật
+          sessionStorage.setItem('khachhang', JSON.stringify(formData));
+          setIsEditing(false);
+          setEditingField(null); // Reset trường đang chỉnh sửa
+        } else {
+          console.error('Update failed:', result);
+        }
       } else {
-        // Xử lý lỗi nếu yêu cầu không thành công
         console.error('Failed to update user information:', response.statusText);
       }
     } catch (error) {
       console.error('Error updating user information:', error);
     }
   };
-
+  
   // Hàm xử lý chuyển sang chế độ chỉnh sửa cho từng trường
   const handleEditField = (field) => {
     setEditingField(field);

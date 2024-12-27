@@ -28,10 +28,11 @@ const ChangePassword = () => {
     setErrorMessage('');
 
     try {
+      console.log(token,khachhang.maKhachHang);
       const requestData = {
         oldPassword: oldPassword,
         newPassword: newPassword,
-        id: khachhang.id, // Thay 'userId' bằng ID của người dùng nếu cần
+        id: khachhang.maKhachHang, // Thay 'userId' bằng ID của người dùng nếu cần
       };
 
       const response = await fetch('https://doubleshop.linkpc.net/endpoints/changePassword', {
