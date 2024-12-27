@@ -1,41 +1,27 @@
 import React from "react";
 import Header from "./Header/Header";
 import Banner from "./banner/Banner";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Footer from "./footer/Footer";
 import GetThuongHieu from "./slideSanPham/GetThuongHieu";
 import SlideAnh from "./slide/SlideAnh";
-import ProductList from './slideSanPham/ProductList';
-import ProductDetail from './slideSanPham/ProductDetail';
-import GioHang from './slideSanPham/GioHang';
-import { CartProvider, useCart } from "./context/context";
+import MainThanWeb from "./slideSanPham/MainThanWeb";
+import { AuthProvider } from "./context/context";  // Import AuthProvider
 
 function App() {
   return (
-    <CartProvider>
-      <Router>
-        <AppContent />
-      </Router>
-    </CartProvider>
+    <AuthProvider>
+      <AppContent />
+      </AuthProvider>
   );
 }
 
 function AppContent() {
-  // Sử dụng hook useCart trong component function
-  const { isCartVisible } = useCart();
-
   return (
     <>
       <Header />
       <Banner />
-      <Routes v7_startTransition={true}>
-        <Route path="/" element={<ProductList />} />
-        <Route path="/product-detail/:id" element={<ProductDetail />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
-        <Route path="/giohang" element={<GioHang />} />
-      </Routes>
-
+      <MainThanWeb />
       <SlideAnh />
       <GetThuongHieu />
       <Footer />

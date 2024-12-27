@@ -14,8 +14,14 @@
     padding: 10px 5%;  
     box-sizing: border-box;
     z-index: 1000; 
-    transition: padding 0.3s ease; 
- margin-bottom: 50px;
+    transition: padding 0.3s ease;
+    /* Thêm padding-top cho phần tử tiếp theo tránh bị che khuất */
+    /* margin-bottom: 50px; */
+}
+
+/* Bổ sung padding-top cho phần tử tiếp theo tránh bị navbar che khuất */
+body {
+    padding-top: 60px; 
 }
 
 .navbar-left,
@@ -23,6 +29,7 @@
     display: flex;
     gap: 30px;  
 }
+
 .navbar-left {
     justify-content: flex-start;
 }
@@ -35,22 +42,61 @@
     cursor: pointer;
     padding: 8px 15px;  
     font-size: 18px;  
-    transition: background-color 0.3s ease, color 0.3s ease, padding 0.3s ease;
-
-
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;  /* Sử dụng transform thay vì padding */
 }
 
 .navbar a {
     text-decoration: none;  /* Loại bỏ gạch chân */
     color: inherit;
 }
+
 .nav-link:hover {
     background-color: #333333;
     color: #FFD700;
     border-radius: 5px;
-    padding: 8px 20px;  
+    /* Sử dụng transform để không thay đổi kích thước phần tử */
+    transform: scale(1.1);  
+}
+/* Định dạng cho phần tử .user-info */
+.user-info {
+    display: flex;
+    flex-direction: column; /* Hoặc 'row' tùy thuộc vào bố cục mong muốn */
+    align-items: flex-start; /* Căn chỉnh nội dung */
+    padding: 10px;
+    background-color: #f9f9f9; /* Màu nền */
+    border-radius: 8px; /* Bo góc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+    margin: 10px 0; /* Khoảng cách ngoài */
 }
 
+/* Định dạng cho tên người dùng */
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px; /* Khoảng cách dưới */
+    color: #333; /* Màu chữ */
+}
+
+/* Định dạng cho nút đăng xuất */
+.auth-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Màu nền */
+    border: none; /* Loại bỏ viền */
+    border-radius: 5px; /* Bo góc */
+    cursor: pointer; /* Thay đổi con trỏ khi hover */
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho nút đăng xuất */
+.auth-button:hover {
+    background-color: #0056b3; /* Màu khi hover */
+}
+
+
+/* Ẩn menu icon trên màn hình lớn */
 .menu-icon {
     display: none;
     cursor: pointer;
@@ -83,45 +129,32 @@
 /* Responsive */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
-        padding: 10px 20px;  /* Thêm padding cho các thiết bị di động */
+        flex-direction: row; /* Đảm bảo hiển thị theo dạng ngang */
+        padding: 4px 8px; /* Điều chỉnh padding cho navbar */
     }
-    
+
     .navbar-left,
     .navbar-right {
-        display: none; /* Ẩn menu ngang */
-        width: 100%;  /* Đảm bảo chiều rộng 100% khi chuyển sang menu dọc */
-        flex-direction: column; /* Chuyển các mục thành cột */
-        gap: 15px;
-    }
-    
-    .menu-icon {
-        display: block;
-    }
-    
-    .navbar.open .navbar-left,
-    .navbar.open .navbar-right {
-        display: flex; /* Hiển thị menu khi mở */
-    }
-    
-    /* Để menu hamburger có hiệu ứng */
-    .menu-icon.open span:nth-child(1) {
-        transform: rotate(45deg);
-        top: 10px;
+        display: flex; /* Hiển thị menu ngang */
+        width: 100%; /* Đảm bảo navbar chiếm toàn bộ chiều rộng */
+        justify-content: space-between; /* Đảm bảo các phần tử phân bổ đều */
+        gap: 10px; /* Giảm khoảng cách giữa các phần tử */
     }
 
-    .menu-icon.open span:nth-child(2) {
-        opacity: 0;
+    /* Thay đổi kích thước font cho các nút */
+    .nav-link {
+        font-size: 14px; /* Giảm kích thước chữ trên mobile */
+        padding: 8px 12px; /* Điều chỉnh padding cho các nút */
     }
-
-    .menu-icon.open span:nth-child(3) {
-        transform: rotate(-45deg);
-        bottom: 10px;
+    
+    /* Giảm kích thước nút */
+    .nav-link h3 {
+        font-size: 12px; /* Giảm kích thước chữ trong thẻ h3 */
     }
 }
 
 @media (min-width: 768px) {
     .menu-icon {
-        display: none;
+        display: none; /* Ẩn icon menu trên màn hình lớn */
     }
 }

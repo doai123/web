@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./btl_web
+        working-directory: ./frontend
     steps:
       # Step 1: Checkout code
       - name: Checkout repository
@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'  # Bạn có thể thay đổi version Node.js theo yêu cầu
-          cache-dependency-path: './btl_web/package-lock.json'
+          cache-dependency-path: './frontend/package-lock.json'
           cache: 'npm'
       # Step 3: Install dependencies using npm ci
       - name: Install dependencies

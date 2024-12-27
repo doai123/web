@@ -1,28 +1,49 @@
-import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"; // Import Link
 import "./Header.css";
-import { useCart } from "../context/context";
+import { useAuth } from "../context/context";
+import UserProfile from "../UserProFile/UserProFile";
 
 function Header() {
+  const { isLogin, logout, khachhang } = useAuth(); // Lấy trạng thái và hàm logout từ context
   const [cartCount, setCartCount] = useState(0);
-  const { isCartVisible, setIsCartVisible } = useCart();
+
   useEffect(() => {
-    // Update cart count when the component mounts
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Lấy số lượng sản phẩm từ giỏ hàng trong localStorage
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
     setCartCount(cart.length);
-  }, []); // Runs only on initial mount
+  }, []);
 
   return (
     <div className="navbar">
       <div className="navbar-left">
-        <Link to="/" className="nav-link"><h3>Trang Chủ</h3></Link>
-        <Link to="/giohang" className="nav-link" onClick={()=> setIsCartVisible(!isCartVisible)}><h3>Giỏ Hàng</h3></Link>
-        <a href="/Lienheadmin.html" className="nav-link"> <h3>Liên Hệ</h3></a>
-        <a href="/GioiThieu.html" className="nav-link"><h3>Giới Thiệu</h3></a>
+        <Link to="/" className="nav-link">
+          <h3>Trang Chủ</h3>
+        </Link>
+        <Link to="/giohang" className="nav-link">
+          <h3>Giỏ Hàng ({cartCount})</h3>
+        </Link>
+        <Link to="/LienHeAdmin" className="nav-link">
+          <h3>Liên Hệ</h3>
+        </Link>
+        <Link to="/GioiThieu" className="nav-link">
+          <h3>Giới Thiệu</h3>
+        </Link>
       </div>
+
       <div className="navbar-right">
-        <a href="https://ditcuchungmay.linkpc.net/endpoints/req/login"><h3 className="nav-link">Đăng Nhập</h3></a>
-        <a href="https://ditcuchungmay.linkpc.net/endpoints/req/signup"><h3 className="nav-link">Đăng Ký</h3></a>
+        {isLogin ? (
+          <UserProfile userName={khachhang.ten} onLogout={logout} />
+        ) : (
+          <>
+            <Link to="/Login" className="nav-link">
+              <h3>Đăng Nhập</h3>
+            </Link>
+            <Link to="/Signup" className="nav-link">
+              <h3>Đăng Ký</h3>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

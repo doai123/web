@@ -7,14 +7,14 @@ describe('Login Form', () => {
         const randomEmail = faker.internet.email();
         const randomPassword = 'doai123';
 
-        cy.visit('/endpoints/req/signup');
+        cy.visit('/Signup');
         cy.get('input[name="username"]').type(randomUsername);
         cy.wait(1000);
         cy.get('input[name="email"]').type(randomEmail);
         cy.wait(1000);
         cy.get('input[name="password"]').type(randomPassword);
         cy.wait(1000);
-        cy.get('input[name="passwordcon"]').type(randomPassword);
+        cy.get('input[name="confirmPassword"]').type(randomPassword);
         cy.wait(1000);
         cy.get('button[type="submit"]').click();
 
@@ -28,6 +28,9 @@ describe('Login Form', () => {
         cy.get('button[type="submit"]').click();
 
         // Kiểm tra sau khi đăng nhập có chuyển đến trang chủ không
-        cy.contains('Trang Chủ').should('be.visible');
+        cy.contains('Trang Chủ').wait(3000);
+        cy.get('.logout-btn').wait(3000);
+
+
     });
 });

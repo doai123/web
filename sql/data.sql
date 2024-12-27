@@ -60,6 +60,7 @@ CREATE TABLE `khach_hang` (
   `email` varchar(255) DEFAULT NULL,
   `mat_khau` varchar(255) DEFAULT NULL,
   `so_dien_thoai` varchar(255) DEFAULT NULL,
+  `roles` varchar(255) DEFAULT NULL,
   `ten` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`ma_khach_hang`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -71,7 +72,7 @@ CREATE TABLE `khach_hang` (
 
 LOCK TABLES `khach_hang` WRITE;
 /*!40000 ALTER TABLE `khach_hang` DISABLE KEYS */;
-INSERT INTO `khach_hang` VALUES (1,NULL,'maytinhdongdo362@gmail.com','$2a$10$QmPefa7vbVA2dz01OaOu9.lG4PxNEwXvBfoAvG7I5zNiPCGF5IUXC',NULL,'Nguyen Van A'),(2,NULL,'duongsanemi@gmail.com','$2a$10$O9luJE93tHbmBYPseOtE8.QXSZgEbVAvD2JnPc6vKVqlccEUflzXy',NULL,'le');
+-- INSERT INTO `khach_hang` VALUES (1,NULL,'maytinhdongdo362@gmail.com','$2a$10$QmPefa7vbVA2dz01OaOu9.lG4PxNEwXvBfoAvG7I5zNiPCGF5IUXC',NULL,'Nguyen Van A'),(2,NULL,'duongsanemi@gmail.com','$2a$10$O9luJE93tHbmBYPseOtE8.QXSZgEbVAvD2JnPc6vKVqlccEUflzXy',NULL,'le');
 /*!40000 ALTER TABLE `khach_hang` ENABLE KEYS */;
 UNLOCK TABLES;
 

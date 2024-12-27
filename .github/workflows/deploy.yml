@@ -34,7 +34,7 @@ jobs:
               git pull
               COMMIT_MESSAGE=$(git log -1 --pretty=%B)
               echo "Commit message: $COMMIT_MESSAGE"
-              cd /home/data/btl_web
+              cd /home/data/frontend
               mkdir pm2_data
               if [[ "$COMMIT_MESSAGE" == *"restart-nodejs"* ]]; then
                 echo "Restarting Node.js container..."
@@ -59,6 +59,10 @@ jobs:
                 docker restart nginx
                 docker restart spring-container
               fi
+               if [[ "$COMMIT_MESSAGE" == *"rebuild"* ]]; then
+                docker-compose build
+                docker-compose up -d
+              fi
 
             else
               echo "Docker is not installed. Exiting deployment."
@@ -79,6 +83,6 @@ jobs:
               cd /home/data
               git clone --branch production --single-branch https://github.com/doai123/web.git .
               docker-compose up -d
-              sleep 30
+              sleep 40
               docker exec -i mysql mysql -u doai123 -p${MYSQL_PASSWORD} btl_web < /home/data/sql/data.sql
             fi
