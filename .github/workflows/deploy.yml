@@ -57,7 +57,7 @@ jobs:
                if [[ "$COMMIT_MESSAGE" == *"restart-all"* ]]; then
                 docker restart nodejs
                 docker restart nginx
-                docker restart spring-container
+                docker restart springboot
               fi
                if [[ "$COMMIT_MESSAGE" == *"rebuild"* ]]; then
                 docker-compose build
