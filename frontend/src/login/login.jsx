@@ -1,104 +1,165 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import './login.css';
 import { useAuth } from "../context/context";
 
 const LoginForm = () => {
-  const { login } = useAuth();  // Lấy hàm login từ context
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
-  const navigate = useNavigate();
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false); // Kiểm tra mật khẩu có hiển thị hay không
+    const [isPasswordFocused, setIsPasswordFocused] = useState(false); // Kiểm tra xem ô mật khẩu có focus hay không
+    const [error, setError] = useState(""); // Lưu thông báo lỗi
+    const [success, setSuccess] = useState(""); // Lưu thông báo thành công
+    const { login } = useAuth();  // Lấy hàm login từ context
+    const [formData, setFormData] = useState({
+      username: '',
+      password: '',
+    });
+    const navigate = useNavigate();
+    const togglePasswordVisibility = () => {
+        setIsPasswordVisible(!isPasswordVisible);
+    };
+    const handleFocus = () => {
+        setIsPasswordFocused(true);
+    };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError('');
-    setSuccess('');
-
-    try {
-      const response = await fetch('https://doubleshop.linkpc.net/endpoints/req/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(formData),
-      });
-
-      const result = await response.json();
-      if (response.ok) {
-        // Xử lý đăng nhập thành công
-        setSuccess('Login successful!');
-        const { makhachhang, token, ten } = result;
-        const isLogin = true;
-
-        // Lưu makhachhang và token vào context
-        login(makhachhang, token, ten, isLogin);
-        console.log(isLogin,ten);
-
-        // Chuyển hướng ngay lập tức sau khi đăng nhập thành công
-        navigate('/');  // Chuyển hướng đến trang chủ hoặc bất kỳ trang nào bạn muốn
-      } else {
-        // Xử lý lỗi đăng nhập
-        setError(result.error || 'Login failed. Please try again.');
+    const handleBlur = () => {
+        if (formData.password === "") {
+            setIsPasswordFocused(false);
+        }
+    };
+    
+    // Kiểm tra xem ô input có giá trị hay không
+    const hasValue = formData.password.length > 0;
+    
+  
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setError('');
+      setSuccess('');
+  
+      try {
+        const response = await fetch('https://doubleshop.linkpc.net/endpoints/req/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+          },
+          body: new URLSearchParams(formData),
+        });
+  
+        const result = await response.json();
+        if (response.ok) {
+          // Xử lý đăng nhập thành công
+          setSuccess('Login successful!');
+          const { makhachhang, token, ten } = result;
+          const isLogin = true;
+  
+          // Lưu makhachhang và token vào context
+          login(makhachhang, token, ten, isLogin);
+          console.log(isLogin,ten);
+  
+          // Chuyển hướng ngay lập tức sau khi đăng nhập thành công
+          navigate('/');  // Chuyển hướng đến trang chủ hoặc bất kỳ trang nào bạn muốn
+        } else {
+          // Xử lý lỗi đăng nhập
+          setError(result.error || 'Login failed. Please try again.');
+        }
+      } catch (err) {
+        setError('An error occurred. Please try again later.');
       }
-    } catch (err) {
-      setError('An error occurred. Please try again later.');
-    }
-  };
+    };
 
-  return (<div>
-  <img src='/background_login.webp' className='image_login_auth' ></img>
-    <div className="auth-container">
-      
-      <h2 className='h2_input-group'>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-            placeholder=" "
-            required
-          />
-          <label htmlFor="username" className='username_au'>Username</label>
+
+    return (
+        <div className="login">
+            <img src="background_login.jpg" alt="login background" className="login__img" />
+
+            <form onSubmit={handleSubmit} className="login__form">
+                <h1 className="login__title">Login</h1>
+
+                <div className="login__content">
+                    <div className="login__box">
+                        <i className="bx bx-user"></i>
+                        <div className="login__box-input">
+                            <input
+                                type="text"
+                                name="username"
+                                required
+                                className={`login__input ${formData.username ? 'has-value' : ''}`}
+                                placeholder=""
+                                value={formData.username}
+                                onChange={handleInputChange}
+                            />
+                            <label htmlFor="username" className="login__label">
+                                Username
+                            </label>
+                        </div>
+                    </div>
+
+                    <div className="login__box">
+                        <i className="ri-lock-2-line login__icon"></i>
+                        <div className="login__box-input">
+                            <input
+                                type={isPasswordVisible ? "text" : "password"}
+                                required
+                                name="password"
+                                className={`login__input ${formData.password ? 'has-value' : ''}`}
+                                id="login-pass"
+                                placeholder=""
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                onFocus={handleFocus}
+                                onBlur={handleBlur}
+                            />
+                            <label htmlFor="login-pass" className="login__label">
+                                Password
+                            </label>
+                            {(formData.password || isPasswordFocused) && (
+                                <i
+                                    className={`ri-eye${isPasswordVisible ? "-line" : "-off-line"} login__eye`}
+                                    onClick={togglePasswordVisibility}
+                                ></i>
+                            )}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Hiển thị thông báo lỗi hoặc thành công */}
+                {error && <p className="error-message">{error}</p>}
+                {success && <p className="success-message">{success}</p>}
+
+                <div className="login__check">
+                    <div className="login__check-group">
+                        <input type="checkbox" className="login__check-input" />
+                        <label htmlFor="" className="login__check-label">
+                            Remember me
+                        </label>
+                    </div>
+
+                    <Link to="/reset-password" className="login__forgot">
+                        Forgot Password?
+                    </Link>
+                </div>
+
+                <button type="submit" className="login__button">
+                    Login
+                </button>
+
+                <p className="login__register">
+                    Don't have an account?{" "}
+                    <Link to="/signup" className="login__register-link">
+                        Register
+                    </Link>
+                </p>
+            </form>
         </div>
-        <div className="input-group">
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-            placeholder=" "
-            required
-          />
-          <label htmlFor="password" className='password_au'>Password</label>
-        </div>
-        <button
-        className="switch-mode"
-        onClick={() => navigate('/reset-password')}  // Chuyển hướng tới trang reset password
-      >
-        Forgot Password?
-      </button>
-        <button type="submit" className="auth-button" >Login</button>
-      </form>
-      {error && <p className="error-message">{error}</p>}
-      {success && <p className="success-message">{success}</p>}
-    </div></div>
-  );
+    );
 };
 
 export default LoginForm;

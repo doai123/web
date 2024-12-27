@@ -122,3 +122,16 @@
 .success-message {
   color: green;
 }
+.signup__login {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.signup__login a {
+  color: black;
+  font-weight: var(--font-medium);
+}
+
+.signup__login a:hover {
+  text-decoration: underline;
+}

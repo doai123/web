@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Import Link
 import "./Header.css";
 import { useAuth } from "../context/context";
+import UserProfile from "../UserProFile/UserProFile";
 
 function Header() {
   const { isLogin, logout, ten } = useAuth(); // Lấy trạng thái và hàm logout từ context
@@ -32,12 +33,7 @@ function Header() {
 
       <div className="navbar-right">
         {isLogin ? (
-          <div className="user-info">
-            <h3 className="user-name">Xin chào, User {ten}</h3>
-            <button onClick={logout} className="auth-button">
-              Đăng Xuất
-            </button>
-          </div>
+          <UserProfile userName={ten} onLogout={logout} />
         ) : (
           <>
             <Link to="/Login" className="nav-link">

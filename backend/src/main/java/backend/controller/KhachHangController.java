@@ -54,22 +54,30 @@
         public ResponseEntity<Map<String, Object>> login(@RequestParam("username") String username,
                                                          @RequestParam("password") String password) {
             Map<String, Object> response = new HashMap<>();
-            Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
 
+            // Kiểm tra xem username và password có bị thiếu không
             if (username.isEmpty() || password.isEmpty()) {
                 response.put("error", "Username and password are required");
                 return ResponseEntity.badRequest().body(response); // Trả về lỗi 400 nếu thiếu thông tin
             }
 
-            long login = authenticationServices.login(username, password);
+            // Tìm kiếm người dùng trong cơ sở dữ liệu
+            Optional<KhachHang> khachHang = khachHangRepository.findByTen(username);
 
+            // Nếu không tìm thấy người dùng
+            if (!khachHang.isPresent()) {
+                response.put("error", "Invalid username or password");
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response); // Trả về lỗi 401 nếu không tìm thấy người dùng
+            }
+
+            // Xác thực đăng nhập
+            long login = authenticationServices.login(username, password);
             if (login > 0) {
                 try {
                     // Tạo token JWT sau khi đăng nhập thành công
-                    String token = jwt.generateToken(username, "userRole"); // Cập nhật theo cách lấy role của người dùng
+                    String token = jwt.generateToken(username, "ROLE_USER"); // Cập nhật theo cách lấy role của người dùng
                     response.put("token", token); // Gửi token về cho frontend
-                    response.put("makhachhang", login);
-                    response.put("ten", khachHang.get().getTen());
+                    response.put("khachhang", khachHang.get()); // Gửi thông tin khách hàng
                     return ResponseEntity.ok(response); // Trả về mã 200 với token
                 } catch (Exception e) {
                     response.put("error", "Error generating JWT token: " + e.getMessage());
@@ -80,6 +88,7 @@
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response); // Trả về lỗi 401 nếu đăng nhập thất bại
             }
         }
+
 
         @DeleteMapping("delete/delete-all")
         public ResponseEntity<Map<String, String>> deleteAll() {

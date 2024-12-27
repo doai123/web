@@ -52,7 +52,7 @@ public class SendMail {
                 Transport.send(message);
                 String encodedPassword = passwordEncoder.encode(newPassword);
                 khachHang.get().setMatKhau(encodedPassword);
-                khachHangRepository.save(khachHang.get());
+                khachHangRepository.saveAndFlush(khachHang.get());
 
                 System.out.println("Sent message successfully....");
                 return true;
