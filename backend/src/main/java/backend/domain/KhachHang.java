@@ -21,7 +21,7 @@ public class KhachHang implements UserDetails {
 @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long maKhachHang;
     private String roles = "ROLE_USER";
-    private String ten;
+    private String ten= "user";
     private String email;
     private String username;
     private String matKhau;
