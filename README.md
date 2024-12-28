@@ -72,9 +72,9 @@ Sinh viên viết báo cáo kết quả trực tiếp vào phần này để tr�
                         - Ảnh Đăng nhập: ![anh dang nhap](assets/login.png), đăng nhập bằng email và password
                         - Ảnh Đăng ký: ![anh dang ki](assets/anh2.png), đăng ký bằng các tài khoản khách hàng
                         - Ảnh Giỏ hàng: ![anh gio hang](assets/anh.png), giỏ hàng chứa trạng thái sản phẩm, gồm các sản phẩm đã mua và chưa mua, xóa sản phẩm
-                        - Ảnh quên mk: ![anh trang quên mk](assets/forgotpassword.png), gửi mk qua email của người dùng
-                        - ảnh thông tin người dùng và chỉnh sửa: ![anh trang thong tin](assets/thongtin.png),
-                        - ảnh thay đổi mk: ![anh trang thay doi mk](assets/changepassword.png),
+                        - Ảnh quên mk: ![anh 1](assets/forgotpassword.png),![anh 2](assets/anh7.png),![anh 3](assets/anh8.png) gửi mk qua email của người dùng
+                        - ảnh thông tin người dùng và chỉnh sửa: ![anh trang thong tin](assets/thongtin.png),![anh trang thong tin 1](assets/changethongtin.png)
+                        - ảnh thay đổi mk: ![anh 4](assets/changepassword.png),![anh 5](assets/anh9.png)
                         - Ảnh Sản phẩm: ![anh san pham](assets/anh1.png), sản phẩm của cửa hàng
                         - Ảnh Footer: ![footer](assets/anh5.png), ảnh footer giao diện ở trang chính, chăm sóc khách hàng, tư vấn, giải đáp thắc mắc,...
                         - Giao diện Sản phẩm Shop: ![shop](assets/anh6.png), danh sách sản phẩm
@@ -97,8 +97,7 @@ Sinh viên viết báo cáo kết quả trực tiếp vào phần này để tr�
                        - Kiểm thử tự động: dùng jest và cypress để kiểm thử 
                        - CI/CD: Git action file deploy.yml dùng để deploy ứng dụng tự động nhanh chóng, File testing.yml để test ứng dụng                  
 
-4. **Video demo (nếu có)**:[![Introduction Video](video/gioithieuweb.mp4)]
-                     -đường dẫn video :video/gioithieuweb.mp4
+4. **Video demo (nếu có)**: https://www.dropbox.com/scl/fi/j22zhxzyy01p3stuai7eh/gioithieuweb.mp4?rlkey=oxt78rfsfwjysqfojqoxfkqay&st=84k0p0es&dl=0
 
 5. **Tự đánh giá điểm**: Sinh viên tự đánh giá điểm của mình theo tiêu chí đánh giá đã đề ra. Ghi rõ điểm tự đánh giá và lý do.
 
